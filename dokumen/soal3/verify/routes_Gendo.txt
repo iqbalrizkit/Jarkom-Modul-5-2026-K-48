@@ -1,0 +1,43 @@
+default via 192.168.122.1 dev eth1 metric 103145 
+192.168.122.0/24 dev eth1 proto kernel scope link src 192.168.122.66 
+192.235.0.0/23 via 192.235.4.110 dev eth2 
+192.235.2.0/24 via 192.235.4.114 dev eth3 
+192.235.3.0/25 via 192.235.4.110 dev eth2 
+192.235.3.128/26 via 192.235.4.118 dev eth4 
+192.235.3.192/27 via 192.235.4.134 dev eth8 
+192.235.3.224/27 via 192.235.4.114 dev eth3 
+192.235.4.0/27 via 192.235.4.110 dev eth2 
+192.235.4.32/28 via 192.235.4.110 dev eth2 
+192.235.4.48/29 via 192.235.4.118 dev eth4 
+192.235.4.56/29 via 192.235.4.134 dev eth8 
+192.235.4.64/29 via 192.235.4.126 dev eth6 
+192.235.4.72/29 via 192.235.4.134 dev eth8 
+192.235.4.80/28 via 192.235.4.130 dev eth7 
+192.235.4.96/30 via 192.235.4.118 dev eth4 
+192.235.4.100/30 via 192.235.4.122 dev eth5 
+192.235.4.104/30 dev eth0 proto kernel scope link src 192.235.4.105 
+192.235.4.108/30 dev eth2 proto kernel scope link src 192.235.4.109 
+192.235.4.112/30 dev eth3 proto kernel scope link src 192.235.4.113 
+192.235.4.116/30 dev eth4 proto kernel scope link src 192.235.4.117 
+192.235.4.120/30 dev eth5 proto kernel scope link src 192.235.4.121 
+192.235.4.124/30 dev eth6 proto kernel scope link src 192.235.4.125 
+192.235.4.128/30 dev eth7 proto kernel scope link src 192.235.4.129 
+192.235.4.132/30 dev eth8 proto kernel scope link src 192.235.4.133 
+192.235.4.136/29 via 192.235.4.110 dev eth2 
+192.235.4.144/30 via 192.235.4.110 dev eth2 
+192.235.4.148/30 via 192.235.4.114 dev eth3 
+192.235.4.152/29 via 192.235.4.118 dev eth4 
+192.235.4.160/30 via 192.235.4.130 dev eth7 
+192.235.4.164/30 via 192.235.4.134 dev eth8 
+192.235.4.168/30 via 192.235.4.134 dev eth8 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.105/30 
+eth1             UNKNOWN        192.168.122.66/24 
+eth2             UNKNOWN        192.235.4.109/30 
+eth3             UNKNOWN        192.235.4.113/30 
+eth4             UNKNOWN        192.235.4.117/30 
+eth5             UNKNOWN        192.235.4.121/30 
+eth6             UNKNOWN        192.235.4.125/30 
+eth7             UNKNOWN        192.235.4.129/30 
+eth8             UNKNOWN        192.235.4.133/30 

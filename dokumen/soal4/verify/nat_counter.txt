@@ -1,0 +1,7 @@
+counter sebelum uji      : 0 paket / 0 byte
+setelah ping antar-LAN   : 0 paket / 0 byte
+setelah ping internet    : 19 paket / 1308 byte
+
+Chain POSTROUTING (policy ACCEPT 1 packets, 84 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   19  1308 MASQUERADE  all  --  *      eth1    192.235.0.0/16       0.0.0.0/0           

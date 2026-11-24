@@ -1,0 +1,124 @@
+===== Quarters =====
+__RC=0__
+eth0             UNKNOWN        192.235.0.2/23 
+default via 192.235.0.1 dev eth0
+
+===== Comm-Net =====
+__RC=0__
+eth0             UNKNOWN        192.235.2.2/24 
+default via 192.235.2.1 dev eth0
+
+===== Hangar-Crew =====
+__RC=0__
+eth0             UNKNOWN        192.235.3.2/25 
+default via 192.235.3.1 dev eth0
+
+===== Sachiel =====
+__RC=0__
+eth0             UNKNOWN        192.235.3.130/26 
+default via 192.235.3.129 dev eth0
+
+===== Pen-Pen =====
+__RC=0__
+eth0             UNKNOWN        192.235.3.194/27 
+default via 192.235.3.193 dev eth0
+
+===== Medic-Bay =====
+__RC=0__
+eth0             UNKNOWN        192.235.3.195/27 
+default via 192.235.3.193 dev eth0
+
+===== Relay-Node =====
+__RC=0__
+eth0             UNKNOWN        192.235.3.226/27 
+default via 192.235.3.225 dev eth0
+
+===== Garden-Staff =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.2/27 
+default via 192.235.4.1 dev eth0
+
+===== Dock-Crew =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.34/28 
+default via 192.235.4.33 dev eth0
+
+===== Entry-Plug =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.50/29 
+default via 192.235.4.49 dev eth0
+
+===== Dummy-Plug =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.51/29 
+default via 192.235.4.49 dev eth0
+
+===== Magi-Casper =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.58/29 
+default via 192.235.4.57 dev eth0
+
+===== Magi-Balthasar =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.59/29 
+default via 192.235.4.57 dev eth0
+
+===== Magi-Melchior =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.60/29 
+default via 192.235.4.57 dev eth0
+
+===== Unit-01 =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.66/29 
+default via 192.235.4.65 dev eth0
+
+===== Unit-02 =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.67/29 
+default via 192.235.4.65 dev eth0
+
+===== Unit-00 =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.68/29 
+default via 192.235.4.65 dev eth0
+
+===== Lilith =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.74/29 
+default via 192.235.4.73 dev eth0
+
+===== Adam =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.75/29 
+default via 192.235.4.73 dev eth0
+
+===== Zeruel =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.82/29 
+default via 192.235.4.81 dev eth0
+
+===== Armisael =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.83/29 
+default via 192.235.4.81 dev eth0
+
+===== Radar-Array =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.90/29 
+default via 192.235.4.89 dev eth0
+
+===== Archive-Vault =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.98/30 
+default via 192.235.4.97 dev eth0
+
+===== Spy =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.102/30 
+default via 192.235.4.101 dev eth0
+
+===== Tokyo3-Core =====
+__RC=0__
+eth0             UNKNOWN        192.235.4.106/30 
+default via 192.235.4.105 dev eth0

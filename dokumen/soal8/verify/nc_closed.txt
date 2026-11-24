@@ -1,0 +1,11 @@
+===== Lilith -> Pen-Pen:22 (tidak dilayani) =====
+$ TIMEFORMAT='%R detik'; time timeout 5 nc -v -w 2 192.235.3.194 22; echo __RC=$?__
+nc: connect to 192.235.3.194 port 22 (tcp) failed: Connection refused
+0.006 detik
+__RC=1__
+
+===== Lilith -> Tokyo3-Core:22 (tidak dilayani) =====
+$ TIMEFORMAT='%R detik'; time timeout 5 nc -v -w 2 192.235.4.106 22; echo __RC=$?__
+nc: connect to 192.235.4.106 port 22 (tcp) failed: Connection refused
+0.006 detik
+__RC=1__

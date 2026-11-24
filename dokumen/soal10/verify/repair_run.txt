@@ -1,0 +1,10 @@
+===== Misato: soal10_fix.sh =====
+Misato: SNAT 172.31.99.1 dihapus
+-P POSTROUTING ACCEPT
+__RC=0__
+
+===== Gendo: soal10_fix.sh =====
+Gendo: RETURN untuk Cage dihapus
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+__RC=0__

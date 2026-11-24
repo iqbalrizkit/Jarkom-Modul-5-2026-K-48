@@ -1,0 +1,24 @@
+{
+ "nodes": 60,
+ "links": 59,
+ "ping_fail": [],
+ "ip_forward": {
+  "Rei": "1",
+  "Shinji": "1",
+  "Mari": "1",
+  "Kaworu": "1",
+  "Yui": "1",
+  "Fuyutsuki": "1",
+  "Maya": "1",
+  "Hikari": "1",
+  "Gendo": "1",
+  "Kensuke": "1",
+  "Toji": "1",
+  "Asuka": "1",
+  "Shigeru": "1",
+  "Ritsuko": "1",
+  "Kaji": "1",
+  "Misato": "1",
+  "Makoto": "1"
+ }
+}

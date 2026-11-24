@@ -1,0 +1,249 @@
+===== Quarters -> 192.235.0.1 =====
+PING 192.235.0.1 (192.235.0.1) 56(84) bytes of data.
+64 bytes from 192.235.0.1: icmp_seq=1 ttl=64 time=1.63 ms
+64 bytes from 192.235.0.1: icmp_seq=2 ttl=64 time=0.470 ms
+
+--- 192.235.0.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1111ms
+rtt min/avg/max/mdev = 0.470/1.051/1.632/0.581 ms
+__RC=0__
+
+===== Comm-Net -> 192.235.2.1 =====
+PING 192.235.2.1 (192.235.2.1) 56(84) bytes of data.
+64 bytes from 192.235.2.1: icmp_seq=1 ttl=64 time=0.542 ms
+64 bytes from 192.235.2.1: icmp_seq=2 ttl=64 time=0.251 ms
+
+--- 192.235.2.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1182ms
+rtt min/avg/max/mdev = 0.251/0.396/0.542/0.145 ms
+__RC=0__
+
+===== Hangar-Crew -> 192.235.3.1 =====
+PING 192.235.3.1 (192.235.3.1) 56(84) bytes of data.
+64 bytes from 192.235.3.1: icmp_seq=1 ttl=64 time=1.09 ms
+64 bytes from 192.235.3.1: icmp_seq=2 ttl=64 time=0.300 ms
+
+--- 192.235.3.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.300/0.693/1.087/0.393 ms
+__RC=0__
+
+===== Sachiel -> 192.235.3.129 =====
+PING 192.235.3.129 (192.235.3.129) 56(84) bytes of data.
+64 bytes from 192.235.3.129: icmp_seq=1 ttl=64 time=0.910 ms
+64 bytes from 192.235.3.129: icmp_seq=2 ttl=64 time=0.211 ms
+
+--- 192.235.3.129 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1111ms
+rtt min/avg/max/mdev = 0.211/0.560/0.910/0.349 ms
+__RC=0__
+
+===== Pen-Pen -> 192.235.3.193 =====
+PING 192.235.3.193 (192.235.3.193) 56(84) bytes of data.
+64 bytes from 192.235.3.193: icmp_seq=1 ttl=64 time=0.923 ms
+64 bytes from 192.235.3.193: icmp_seq=2 ttl=64 time=0.248 ms
+
+--- 192.235.3.193 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.248/0.585/0.923/0.337 ms
+__RC=0__
+
+===== Medic-Bay -> 192.235.3.193 =====
+PING 192.235.3.193 (192.235.3.193) 56(84) bytes of data.
+64 bytes from 192.235.3.193: icmp_seq=1 ttl=64 time=1.67 ms
+64 bytes from 192.235.3.193: icmp_seq=2 ttl=64 time=0.242 ms
+
+--- 192.235.3.193 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.242/0.955/1.669/0.713 ms
+__RC=0__
+
+===== Relay-Node -> 192.235.3.225 =====
+PING 192.235.3.225 (192.235.3.225) 56(84) bytes of data.
+64 bytes from 192.235.3.225: icmp_seq=1 ttl=64 time=0.409 ms
+64 bytes from 192.235.3.225: icmp_seq=2 ttl=64 time=0.351 ms
+
+--- 192.235.3.225 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1121ms
+rtt min/avg/max/mdev = 0.351/0.380/0.409/0.029 ms
+__RC=0__
+
+===== Garden-Staff -> 192.235.4.1 =====
+PING 192.235.4.1 (192.235.4.1) 56(84) bytes of data.
+64 bytes from 192.235.4.1: icmp_seq=1 ttl=64 time=1.85 ms
+64 bytes from 192.235.4.1: icmp_seq=2 ttl=64 time=0.367 ms
+
+--- 192.235.4.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1111ms
+rtt min/avg/max/mdev = 0.367/1.110/1.854/0.743 ms
+__RC=0__
+
+===== Dock-Crew -> 192.235.4.33 =====
+PING 192.235.4.33 (192.235.4.33) 56(84) bytes of data.
+64 bytes from 192.235.4.33: icmp_seq=1 ttl=64 time=0.721 ms
+64 bytes from 192.235.4.33: icmp_seq=2 ttl=64 time=0.350 ms
+
+--- 192.235.4.33 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.350/0.535/0.721/0.185 ms
+__RC=0__
+
+===== Entry-Plug -> 192.235.4.49 =====
+PING 192.235.4.49 (192.235.4.49) 56(84) bytes of data.
+64 bytes from 192.235.4.49: icmp_seq=1 ttl=64 time=1.28 ms
+64 bytes from 192.235.4.49: icmp_seq=2 ttl=64 time=0.345 ms
+
+--- 192.235.4.49 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.345/0.811/1.277/0.466 ms
+__RC=0__
+
+===== Dummy-Plug -> 192.235.4.49 =====
+PING 192.235.4.49 (192.235.4.49) 56(84) bytes of data.
+64 bytes from 192.235.4.49: icmp_seq=1 ttl=64 time=0.554 ms
+64 bytes from 192.235.4.49: icmp_seq=2 ttl=64 time=0.281 ms
+
+--- 192.235.4.49 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1166ms
+rtt min/avg/max/mdev = 0.281/0.417/0.554/0.136 ms
+__RC=0__
+
+===== Magi-Casper -> 192.235.4.57 =====
+PING 192.235.4.57 (192.235.4.57) 56(84) bytes of data.
+64 bytes from 192.235.4.57: icmp_seq=1 ttl=64 time=1.71 ms
+64 bytes from 192.235.4.57: icmp_seq=2 ttl=64 time=0.246 ms
+
+--- 192.235.4.57 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.246/0.977/1.708/0.731 ms
+__RC=0__
+
+===== Magi-Balthasar -> 192.235.4.57 =====
+PING 192.235.4.57 (192.235.4.57) 56(84) bytes of data.
+64 bytes from 192.235.4.57: icmp_seq=1 ttl=64 time=1.02 ms
+64 bytes from 192.235.4.57: icmp_seq=2 ttl=64 time=0.248 ms
+
+--- 192.235.4.57 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.248/0.635/1.023/0.387 ms
+__RC=0__
+
+===== Magi-Melchior -> 192.235.4.57 =====
+PING 192.235.4.57 (192.235.4.57) 56(84) bytes of data.
+64 bytes from 192.235.4.57: icmp_seq=1 ttl=64 time=0.542 ms
+64 bytes from 192.235.4.57: icmp_seq=2 ttl=64 time=0.323 ms
+
+--- 192.235.4.57 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1184ms
+rtt min/avg/max/mdev = 0.323/0.432/0.542/0.109 ms
+__RC=0__
+
+===== Unit-01 -> 192.235.4.65 =====
+PING 192.235.4.65 (192.235.4.65) 56(84) bytes of data.
+64 bytes from 192.235.4.65: icmp_seq=1 ttl=64 time=0.964 ms
+64 bytes from 192.235.4.65: icmp_seq=2 ttl=64 time=0.333 ms
+
+--- 192.235.4.65 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.333/0.648/0.964/0.315 ms
+__RC=0__
+
+===== Unit-02 -> 192.235.4.65 =====
+PING 192.235.4.65 (192.235.4.65) 56(84) bytes of data.
+64 bytes from 192.235.4.65: icmp_seq=1 ttl=64 time=0.840 ms
+64 bytes from 192.235.4.65: icmp_seq=2 ttl=64 time=0.314 ms
+
+--- 192.235.4.65 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.314/0.577/0.840/0.263 ms
+__RC=0__
+
+===== Unit-00 -> 192.235.4.65 =====
+PING 192.235.4.65 (192.235.4.65) 56(84) bytes of data.
+64 bytes from 192.235.4.65: icmp_seq=1 ttl=64 time=0.762 ms
+64 bytes from 192.235.4.65: icmp_seq=2 ttl=64 time=0.265 ms
+
+--- 192.235.4.65 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1130ms
+rtt min/avg/max/mdev = 0.265/0.513/0.762/0.248 ms
+__RC=0__
+
+===== Lilith -> 192.235.4.73 =====
+PING 192.235.4.73 (192.235.4.73) 56(84) bytes of data.
+64 bytes from 192.235.4.73: icmp_seq=1 ttl=64 time=0.511 ms
+64 bytes from 192.235.4.73: icmp_seq=2 ttl=64 time=0.251 ms
+
+--- 192.235.4.73 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1141ms
+rtt min/avg/max/mdev = 0.251/0.381/0.511/0.130 ms
+__RC=0__
+
+===== Adam -> 192.235.4.73 =====
+PING 192.235.4.73 (192.235.4.73) 56(84) bytes of data.
+64 bytes from 192.235.4.73: icmp_seq=1 ttl=64 time=1.16 ms
+64 bytes from 192.235.4.73: icmp_seq=2 ttl=64 time=0.213 ms
+
+--- 192.235.4.73 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.213/0.685/1.157/0.472 ms
+__RC=0__
+
+===== Zeruel -> 192.235.4.81 =====
+PING 192.235.4.81 (192.235.4.81) 56(84) bytes of data.
+64 bytes from 192.235.4.81: icmp_seq=1 ttl=64 time=0.378 ms
+64 bytes from 192.235.4.81: icmp_seq=2 ttl=64 time=0.551 ms
+
+--- 192.235.4.81 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1132ms
+rtt min/avg/max/mdev = 0.378/0.464/0.551/0.086 ms
+__RC=0__
+
+===== Armisael -> 192.235.4.81 =====
+PING 192.235.4.81 (192.235.4.81) 56(84) bytes of data.
+64 bytes from 192.235.4.81: icmp_seq=1 ttl=64 time=0.670 ms
+64 bytes from 192.235.4.81: icmp_seq=2 ttl=64 time=0.280 ms
+
+--- 192.235.4.81 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.280/0.475/0.670/0.195 ms
+__RC=0__
+
+===== Radar-Array -> 192.235.4.89 =====
+PING 192.235.4.89 (192.235.4.89) 56(84) bytes of data.
+64 bytes from 192.235.4.89: icmp_seq=1 ttl=64 time=0.619 ms
+64 bytes from 192.235.4.89: icmp_seq=2 ttl=64 time=0.241 ms
+
+--- 192.235.4.89 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1166ms
+rtt min/avg/max/mdev = 0.241/0.430/0.619/0.189 ms
+__RC=0__
+
+===== Archive-Vault -> 192.235.4.97 =====
+PING 192.235.4.97 (192.235.4.97) 56(84) bytes of data.
+64 bytes from 192.235.4.97: icmp_seq=1 ttl=64 time=0.617 ms
+64 bytes from 192.235.4.97: icmp_seq=2 ttl=64 time=0.326 ms
+
+--- 192.235.4.97 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1125ms
+rtt min/avg/max/mdev = 0.326/0.471/0.617/0.145 ms
+__RC=0__
+
+===== Spy -> 192.235.4.101 =====
+PING 192.235.4.101 (192.235.4.101) 56(84) bytes of data.
+64 bytes from 192.235.4.101: icmp_seq=1 ttl=64 time=1.35 ms
+64 bytes from 192.235.4.101: icmp_seq=2 ttl=64 time=0.698 ms
+
+--- 192.235.4.101 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1113ms
+rtt min/avg/max/mdev = 0.698/1.024/1.350/0.326 ms
+__RC=0__
+
+===== Tokyo3-Core -> 192.235.4.105 =====
+PING 192.235.4.105 (192.235.4.105) 56(84) bytes of data.
+64 bytes from 192.235.4.105: icmp_seq=1 ttl=64 time=0.981 ms
+64 bytes from 192.235.4.105: icmp_seq=2 ttl=64 time=0.348 ms
+
+--- 192.235.4.105 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.348/0.664/0.981/0.316 ms
+__RC=0__

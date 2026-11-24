@@ -1,0 +1,90 @@
+===== Unit-01: ping -c 4 -W 2 8.8.8.8; echo __RC=$?__ =====
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3453ms
+
+__RC=1__
+
+===== Unit-01: ping -c 2 -W 2 192.235.4.74; echo __RC=$?__ =====
+PING 192.235.4.74 (192.235.4.74) 56(84) bytes of data.
+64 bytes from 192.235.4.74: icmp_seq=1 ttl=60 time=0.829 ms
+64 bytes from 192.235.4.74: icmp_seq=2 ttl=60 time=0.869 ms
+
+--- 192.235.4.74 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1129ms
+rtt min/avg/max/mdev = 0.829/0.849/0.869/0.020 ms
+__RC=0__
+
+===== Unit-01: ping -c 2 -W 2 192.235.4.65; echo __RC=$?__ =====
+PING 192.235.4.65 (192.235.4.65) 56(84) bytes of data.
+64 bytes from 192.235.4.65: icmp_seq=1 ttl=64 time=0.430 ms
+64 bytes from 192.235.4.65: icmp_seq=2 ttl=64 time=0.211 ms
+
+--- 192.235.4.65 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1132ms
+rtt min/avg/max/mdev = 0.211/0.320/0.430/0.109 ms
+__RC=0__
+
+===== Spy: ping -c 4 -W 2 8.8.8.8; echo __RC=$?__ =====
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=19.7 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=20.1 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=20.5 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=19.9 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3330ms
+rtt min/avg/max/mdev = 19.671/20.035/20.477/0.296 ms
+__RC=0__
+
+===== Misato: ip route =====
+default via 192.235.4.125 dev eth1 
+192.235.4.64/29 dev eth0 proto kernel scope link src 192.235.4.65 
+192.235.4.124/30 dev eth1 proto kernel scope link src 192.235.4.126
+
+===== Misato: iptables -t nat -S POSTROUTING =====
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.4.64/29 ! -d 192.235.0.0/16 -o eth1 -j SNAT --to-source 172.31.99.1
+
+===== Misato: iptables -S =====
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+
+===== Misato: cat /proc/sys/net/ipv4/ip_forward =====
+1
+
+===== Misato: ip rule =====
+0:	from all lookup local
+32766:	from all lookup main
+32767:	from all lookup default
+
+===== Gendo: ip route | grep -E 'default|192.235.4.64|192.235.4.48|192.235.4.124|192.235.4.116' =====
+default via 192.168.122.1 dev eth1 metric 103145 
+192.235.4.48/29 via 192.235.4.118 dev eth4 
+192.235.4.64/29 via 192.235.4.126 dev eth6 
+192.235.4.116/30 dev eth4 proto kernel scope link src 192.235.4.117 
+192.235.4.124/30 dev eth6 proto kernel scope link src 192.235.4.125
+
+===== Gendo: iptables -t nat -S POSTROUTING =====
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.4.64/29 -o eth1 -j RETURN
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+
+===== Gendo: iptables -S =====
+-P INPUT DROP
+-P FORWARD DROP
+-P OUTPUT ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p udp -m udp --sport 67 --dport 68 -j ACCEPT
+-A INPUT -s 192.235.0.0/16 -j ACCEPT
+-A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -s 192.235.0.0/16 -o eth1 -j ACCEPT
+-A FORWARD -s 192.235.0.0/16 -d 192.235.0.0/16 -j ACCEPT
+-A OUTPUT -o lo -j ACCEPT
+-A OUTPUT -p udp -m udp --sport 68 --dport 67 -j ACCEPT
+
+===== Gendo: cat /proc/sys/net/ipv4/ip_forward =====
+1

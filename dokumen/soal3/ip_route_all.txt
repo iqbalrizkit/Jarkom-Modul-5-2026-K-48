@@ -1,0 +1,215 @@
+===== Rei =====
+default via 192.235.4.137 dev eth1 
+192.235.0.0/23 dev eth0 proto kernel scope link src 192.235.0.1 
+192.235.4.136/30 dev eth1 proto kernel scope link src 192.235.4.138 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.0.1/23 
+eth1             UNKNOWN        192.235.4.138/30
+
+===== Hikari =====
+default via 192.235.4.113 dev eth1 
+192.235.2.0/24 dev eth0 proto kernel scope link src 192.235.2.1 
+192.235.3.224/27 via 192.235.4.150 dev eth2 
+192.235.4.112/30 dev eth1 proto kernel scope link src 192.235.4.114 
+192.235.4.148/30 dev eth2 proto kernel scope link src 192.235.4.149 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.2.1/24 
+eth1             UNKNOWN        192.235.4.114/30 
+eth2             UNKNOWN        192.235.4.149/30
+
+===== Yui =====
+default via 192.235.4.109 dev eth1 
+192.235.0.0/23 via 192.235.4.138 dev eth2 
+192.235.3.0/25 dev eth0 proto kernel scope link src 192.235.3.1 
+192.235.4.0/27 via 192.235.4.142 dev eth3 
+192.235.4.32/28 via 192.235.4.146 dev eth4 
+192.235.4.108/30 dev eth1 proto kernel scope link src 192.235.4.110 
+192.235.4.136/30 dev eth2 proto kernel scope link src 192.235.4.137 
+192.235.4.140/30 dev eth3 proto kernel scope link src 192.235.4.141 
+192.235.4.144/30 dev eth4 proto kernel scope link src 192.235.4.145 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.3.1/25 
+eth1             UNKNOWN        192.235.4.110/30 
+eth2             UNKNOWN        192.235.4.137/30 
+eth3             UNKNOWN        192.235.4.141/30 
+eth4             UNKNOWN        192.235.4.145/30
+
+===== Kensuke =====
+default via 192.235.4.153 dev eth1 
+192.235.3.128/26 dev eth0 proto kernel scope link src 192.235.3.129 
+192.235.4.152/30 dev eth1 proto kernel scope link src 192.235.4.154 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.3.129/26 
+eth1             UNKNOWN        192.235.4.154/30
+
+===== Maya =====
+default via 192.235.4.165 dev eth1 
+192.235.3.192/27 dev eth0 proto kernel scope link src 192.235.3.193 
+192.235.4.164/30 dev eth1 proto kernel scope link src 192.235.4.166 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.3.193/27 
+eth1             UNKNOWN        192.235.4.166/30
+
+===== Kaworu =====
+default via 192.235.4.149 dev eth1 
+192.235.3.224/27 dev eth0 proto kernel scope link src 192.235.3.225 
+192.235.4.148/30 dev eth1 proto kernel scope link src 192.235.4.150 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.3.225/27 
+eth1             UNKNOWN        192.235.4.150/30
+
+===== Shinji =====
+default via 192.235.4.141 dev eth1 
+192.235.4.0/27 dev eth0 proto kernel scope link src 192.235.4.1 
+192.235.4.140/30 dev eth1 proto kernel scope link src 192.235.4.142 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.1/27 
+eth1             UNKNOWN        192.235.4.142/30
+
+===== Mari =====
+default via 192.235.4.145 dev eth1 
+192.235.4.32/28 dev eth0 proto kernel scope link src 192.235.4.33 
+192.235.4.144/30 dev eth1 proto kernel scope link src 192.235.4.146 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.33/28 
+eth1             UNKNOWN        192.235.4.146/30
+
+===== Ritsuko =====
+default via 192.235.4.157 dev eth1 
+192.235.4.48/29 dev eth0 proto kernel scope link src 192.235.4.49 
+192.235.4.156/30 dev eth1 proto kernel scope link src 192.235.4.158 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.49/29 
+eth1             UNKNOWN        192.235.4.158/30
+
+===== Fuyutsuki =====
+default via 192.235.4.133 dev eth1 
+192.235.3.192/27 via 192.235.4.166 dev eth2 
+192.235.4.56/29 dev eth0 proto kernel scope link src 192.235.4.57 
+192.235.4.72/29 via 192.235.4.170 dev eth3 
+192.235.4.132/30 dev eth1 proto kernel scope link src 192.235.4.134 
+192.235.4.164/30 dev eth2 proto kernel scope link src 192.235.4.165 
+192.235.4.168/30 dev eth3 proto kernel scope link src 192.235.4.169 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.57/29 
+eth1             UNKNOWN        192.235.4.134/30 
+eth2             UNKNOWN        192.235.4.165/30 
+eth3             UNKNOWN        192.235.4.169/30
+
+===== Misato =====
+default via 192.235.4.125 dev eth1 
+192.235.4.64/29 dev eth0 proto kernel scope link src 192.235.4.65 
+192.235.4.124/30 dev eth1 proto kernel scope link src 192.235.4.126 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.65/29 
+eth1             UNKNOWN        192.235.4.126/30
+
+===== Toji =====
+default via 192.235.4.169 dev eth1 
+192.235.4.72/29 dev eth0 proto kernel scope link src 192.235.4.73 
+192.235.4.168/30 dev eth1 proto kernel scope link src 192.235.4.170 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.73/29 
+eth1             UNKNOWN        192.235.4.170/30
+
+===== Shigeru =====
+default via 192.235.4.129 dev eth1 
+192.235.4.80/29 dev eth0 proto kernel scope link src 192.235.4.81 
+192.235.4.88/29 via 192.235.4.162 dev eth2 
+192.235.4.128/30 dev eth1 proto kernel scope link src 192.235.4.130 
+192.235.4.160/30 dev eth2 proto kernel scope link src 192.235.4.161 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.81/29 
+eth1             UNKNOWN        192.235.4.130/30 
+eth2             UNKNOWN        192.235.4.161/30
+
+===== Makoto =====
+default via 192.235.4.161 dev eth1 
+192.235.4.88/29 dev eth0 proto kernel scope link src 192.235.4.89 
+192.235.4.160/30 dev eth1 proto kernel scope link src 192.235.4.162 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.89/29 
+eth1             UNKNOWN        192.235.4.162/30
+
+===== Asuka =====
+default via 192.235.4.117 dev eth1 
+192.235.3.128/26 via 192.235.4.154 dev eth2 
+192.235.4.48/29 via 192.235.4.158 dev eth3 
+192.235.4.96/30 dev eth0 proto kernel scope link src 192.235.4.97 
+192.235.4.116/30 dev eth1 proto kernel scope link src 192.235.4.118 
+192.235.4.152/30 dev eth2 proto kernel scope link src 192.235.4.153 
+192.235.4.156/30 dev eth3 proto kernel scope link src 192.235.4.157 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.97/30 
+eth1             UNKNOWN        192.235.4.118/30 
+eth2             UNKNOWN        192.235.4.153/30 
+eth3             UNKNOWN        192.235.4.157/30
+
+===== Kaji =====
+default via 192.235.4.121 dev eth1 
+192.235.4.100/30 dev eth0 proto kernel scope link src 192.235.4.101 
+192.235.4.120/30 dev eth1 proto kernel scope link src 192.235.4.122 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.101/30 
+eth1             UNKNOWN        192.235.4.122/30
+
+===== Gendo =====
+default via 192.168.122.1 dev eth1 metric 103145 
+192.168.122.0/24 dev eth1 proto kernel scope link src 192.168.122.66 
+192.235.0.0/23 via 192.235.4.110 dev eth2 
+192.235.2.0/24 via 192.235.4.114 dev eth3 
+192.235.3.0/25 via 192.235.4.110 dev eth2 
+192.235.3.128/26 via 192.235.4.118 dev eth4 
+192.235.3.192/27 via 192.235.4.134 dev eth8 
+192.235.3.224/27 via 192.235.4.114 dev eth3 
+192.235.4.0/27 via 192.235.4.110 dev eth2 
+192.235.4.32/28 via 192.235.4.110 dev eth2 
+192.235.4.48/29 via 192.235.4.118 dev eth4 
+192.235.4.56/29 via 192.235.4.134 dev eth8 
+192.235.4.64/29 via 192.235.4.126 dev eth6 
+192.235.4.72/29 via 192.235.4.134 dev eth8 
+192.235.4.80/28 via 192.235.4.130 dev eth7 
+192.235.4.96/30 via 192.235.4.118 dev eth4 
+192.235.4.100/30 via 192.235.4.122 dev eth5 
+192.235.4.104/30 dev eth0 proto kernel scope link src 192.235.4.105 
+192.235.4.108/30 dev eth2 proto kernel scope link src 192.235.4.109 
+192.235.4.112/30 dev eth3 proto kernel scope link src 192.235.4.113 
+192.235.4.116/30 dev eth4 proto kernel scope link src 192.235.4.117 
+192.235.4.120/30 dev eth5 proto kernel scope link src 192.235.4.121 
+192.235.4.124/30 dev eth6 proto kernel scope link src 192.235.4.125 
+192.235.4.128/30 dev eth7 proto kernel scope link src 192.235.4.129 
+192.235.4.132/30 dev eth8 proto kernel scope link src 192.235.4.133 
+192.235.4.136/29 via 192.235.4.110 dev eth2 
+192.235.4.144/30 via 192.235.4.110 dev eth2 
+192.235.4.148/30 via 192.235.4.114 dev eth3 
+192.235.4.152/29 via 192.235.4.118 dev eth4 
+192.235.4.160/30 via 192.235.4.130 dev eth7 
+192.235.4.164/30 via 192.235.4.134 dev eth8 
+192.235.4.168/30 via 192.235.4.134 dev eth8 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.105/30 
+eth1             UNKNOWN        192.168.122.66/24 
+eth2             UNKNOWN        192.235.4.109/30 
+eth3             UNKNOWN        192.235.4.113/30 
+eth4             UNKNOWN        192.235.4.117/30 
+eth5             UNKNOWN        192.235.4.121/30 
+eth6             UNKNOWN        192.235.4.125/30 
+eth7             UNKNOWN        192.235.4.129/30 
+eth8             UNKNOWN        192.235.4.133/30

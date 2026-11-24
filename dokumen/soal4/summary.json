@@ -1,0 +1,52 @@
+{
+ "internal_prefix": "192.235.0.0/16",
+ "dns_servers": [
+  "8.8.8.8",
+  "1.1.1.1"
+ ],
+ "nat_rule": "-s 192.235.0.0/16 -o <iface default route> -j MASQUERADE",
+ "nat_iface": "eth1",
+ "inter_lan_not_natted": true,
+ "nat_counter": {
+  "before": 0,
+  "after_internal": 0,
+  "after_internet": 19
+ },
+ "checks": [
+  {
+   "host": "Armisael",
+   "target": "8.8.8.8",
+   "ok": true
+  },
+  {
+   "host": "Armisael",
+   "target": "deb.debian.org",
+   "ok": true
+  },
+  {
+   "host": "Lilith",
+   "target": "8.8.8.8",
+   "ok": true
+  },
+  {
+   "host": "Lilith",
+   "target": "deb.debian.org",
+   "ok": true
+  }
+ ],
+ "package_node_dns": [
+  {
+   "host": "Magi-Casper",
+   "ok": true
+  },
+  {
+   "host": "Magi-Balthasar",
+   "ok": true
+  },
+  {
+   "host": "Magi-Melchior",
+   "ok": true
+  }
+ ],
+ "fail": []
+}

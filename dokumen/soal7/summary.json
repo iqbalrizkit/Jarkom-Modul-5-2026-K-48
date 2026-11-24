@@ -1,0 +1,49 @@
+{
+ "packages": [
+  "iptables",
+  "netcat-traditional"
+ ],
+ "listeners": {
+  "Magi-Casper": [
+   5000
+  ],
+  "Magi-Balthasar": [
+   5000,
+   5001
+  ],
+  "Magi-Melchior": [
+   5000
+  ]
+ },
+ "messages": [
+  {
+   "label": "Casper-5000",
+   "host": "Magi-Casper",
+   "port": 5000,
+   "text": "HALO CASPER DARI LILITH",
+   "received": true
+  },
+  {
+   "label": "Balthasar-5000",
+   "host": "Magi-Balthasar",
+   "port": 5000,
+   "text": "HALO BALTHASAR PORT 5000 DARI LILITH",
+   "received": true
+  },
+  {
+   "label": "Balthasar-5001",
+   "host": "Magi-Balthasar",
+   "port": 5001,
+   "text": "HALO BALTHASAR PORT 5001 DARI LILITH",
+   "received": true
+  },
+  {
+   "label": "Melchior-5000",
+   "host": "Magi-Melchior",
+   "port": 5000,
+   "text": "HALO MELCHIOR DARI LILITH",
+   "received": true
+  }
+ ],
+ "fail": []
+}

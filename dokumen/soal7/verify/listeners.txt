@@ -1,0 +1,9 @@
+===== Magi-Casper =====
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=215,fd=3))
+
+===== Magi-Balthasar =====
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=169,fd=3))
+LISTEN 0      1            0.0.0.0:5001      0.0.0.0:*    users:(("nc.traditional",pid=170,fd=3))
+
+===== Magi-Melchior =====
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=163,fd=3))

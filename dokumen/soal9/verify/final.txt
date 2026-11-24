@@ -1,0 +1,50 @@
+===== Lilith -> Armisael (Lilith) =====
+$ ping -c 4 -W 2 192.235.4.83; echo __RC=$?__
+PING 192.235.4.83 (192.235.4.83) 56(84) bytes of data.
+64 bytes from 192.235.4.83: icmp_seq=1 ttl=60 time=0.991 ms
+64 bytes from 192.235.4.83: icmp_seq=2 ttl=60 time=1.10 ms
+64 bytes from 192.235.4.83: icmp_seq=3 ttl=60 time=0.534 ms
+64 bytes from 192.235.4.83: icmp_seq=4 ttl=60 time=0.511 ms
+
+--- 192.235.4.83 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3336ms
+rtt min/avg/max/mdev = 0.511/0.783/1.097/0.263 ms
+__RC=0__
+
+===== Armisael -> gateway Shigeru (Armisael) =====
+$ ping -c 4 -W 2 192.235.4.81; echo __RC=$?__
+PING 192.235.4.81 (192.235.4.81) 56(84) bytes of data.
+64 bytes from 192.235.4.81: icmp_seq=1 ttl=64 time=0.261 ms
+64 bytes from 192.235.4.81: icmp_seq=2 ttl=64 time=0.248 ms
+64 bytes from 192.235.4.81: icmp_seq=3 ttl=64 time=0.163 ms
+64 bytes from 192.235.4.81: icmp_seq=4 ttl=64 time=0.261 ms
+
+--- 192.235.4.81 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3433ms
+rtt min/avg/max/mdev = 0.163/0.233/0.261/0.040 ms
+__RC=0__
+
+===== Armisael -> internet (Armisael) =====
+$ ping -c 4 -W 2 8.8.8.8; echo __RC=$?__
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=19.8 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=21.0 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=20.2 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=20.1 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3329ms
+rtt min/avg/max/mdev = 19.762/20.283/20.978/0.439 ms
+__RC=0__
+
+===== route Shigeru (Shigeru) =====
+$ ip route
+default via 192.235.4.129 dev eth1 
+192.235.4.80/29 dev eth0 proto kernel scope link src 192.235.4.81 
+192.235.4.88/29 via 192.235.4.162 dev eth2 
+192.235.4.128/30 dev eth1 proto kernel scope link src 192.235.4.130 
+192.235.4.160/30 dev eth2 proto kernel scope link src 192.235.4.161
+
+===== ip_forward Shigeru (Shigeru) =====
+$ cat /proc/sys/net/ipv4/ip_forward
+1

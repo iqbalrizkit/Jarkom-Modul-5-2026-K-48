@@ -1,0 +1,114 @@
+===== aturan NAT & default route Gendo =====
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+Chain POSTROUTING (policy ACCEPT 13 packets, 1092 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   21  1452 MASQUERADE  all  --  *      eth1    192.235.0.0/16       0.0.0.0/0           
+default via 192.168.122.1 dev eth1 metric 103145 
+nameserver 192.168.122.1
+===== traffic antar-LAN (Armisael -> Lilith) =====
+PING 192.235.4.74 (192.235.4.74) 56(84) bytes of data.
+64 bytes from 192.235.4.74: icmp_seq=1 ttl=60 time=0.592 ms
+64 bytes from 192.235.4.74: icmp_seq=2 ttl=60 time=0.416 ms
+64 bytes from 192.235.4.74: icmp_seq=3 ttl=60 time=1.07 ms
+64 bytes from 192.235.4.74: icmp_seq=4 ttl=60 time=0.792 ms
+
+--- 192.235.4.74 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3421ms
+rtt min/avg/max/mdev = 0.416/0.717/1.069/0.242 ms
+__RC=0__
+counter NAT sebelum=0 setelah=0 → OK (tidak di-NAT)
+===== Armisael -> 8.8.8.8 =====
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=19.8 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=20.3 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=20.4 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=21.0 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3330ms
+rtt min/avg/max/mdev = 19.833/20.389/20.998/0.413 ms
+__RC=0__
+===== Armisael -> deb.debian.org =====
+PING debian.map.fastlydns.net (151.101.66.132) 56(84) bytes of data.
+64 bytes from 151.101.66.132: icmp_seq=1 ttl=243 time=20.9 ms
+64 bytes from 151.101.66.132: icmp_seq=2 ttl=243 time=19.5 ms
+64 bytes from 151.101.66.132: icmp_seq=3 ttl=243 time=20.3 ms
+64 bytes from 151.101.66.132: icmp_seq=4 ttl=243 time=20.0 ms
+
+--- debian.map.fastlydns.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3328ms
+rtt min/avg/max/mdev = 19.509/20.171/20.942/0.518 ms
+__RC=0__
+===== Lilith -> 8.8.8.8 =====
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=109 time=20.9 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=109 time=20.1 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=109 time=21.1 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=109 time=20.4 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3330ms
+rtt min/avg/max/mdev = 20.129/20.641/21.127/0.386 ms
+__RC=0__
+===== Lilith -> deb.debian.org =====
+PING debian.map.fastlydns.net (151.101.66.132) 56(84) bytes of data.
+64 bytes from 151.101.66.132: icmp_seq=1 ttl=242 time=20.3 ms
+64 bytes from 151.101.66.132: icmp_seq=2 ttl=242 time=20.1 ms
+64 bytes from 151.101.66.132: icmp_seq=3 ttl=242 time=20.6 ms
+64 bytes from 151.101.66.132: icmp_seq=4 ttl=242 time=19.8 ms
+
+--- debian.map.fastlydns.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3328ms
+rtt min/avg/max/mdev = 19.815/20.195/20.600/0.288 ms
+__RC=0__
+===== DNS Armisael =====
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+deb.debian.org	canonical name = debian.map.fastlydns.net.
+Name:	debian.map.fastlydns.net
+Address: 151.101.2.132
+Name:	debian.map.fastlydns.net
+Address: 151.101.130.132
+Name:	debian.map.fastlydns.net
+Address: 151.101.66.132
+Name:	debian.map.fastlydns.net
+===== DNS Lilith =====
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+deb.debian.org	canonical name = debian.map.fastlydns.net.
+Name:	debian.map.fastlydns.net
+Address: 151.101.194.132
+Name:	debian.map.fastlydns.net
+Address: 151.101.2.132
+Name:	debian.map.fastlydns.net
+Address: 151.101.66.132
+Name:	debian.map.fastlydns.net
+===== DNS pemasang paket Magi-Casper =====
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+eth0             UNKNOWN        192.235.4.58/29 
+151.101.2.132   STREAM debian.map.fastlydns.net
+151.101.2.132   DGRAM
+===== DNS pemasang paket Magi-Balthasar =====
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+eth0             UNKNOWN        192.235.4.59/29 
+151.101.66.132  STREAM debian.map.fastlydns.net
+151.101.66.132  DGRAM
+===== DNS pemasang paket Magi-Melchior =====
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+eth0             UNKNOWN        192.235.4.60/29 
+151.101.66.132  STREAM debian.map.fastlydns.net
+151.101.66.132  DGRAM
+===== counter NAT setelah traffic internet =====
+sebelum=0 sesudah internal=0 sesudah internet=19 → OK (naik)

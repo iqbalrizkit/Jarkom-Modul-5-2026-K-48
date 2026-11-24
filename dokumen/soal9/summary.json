@@ -1,0 +1,33 @@
+{
+ "router": "Shigeru",
+ "causes": [
+  "net.ipv4.ip_forward = 0",
+  "default route salah: via 192.235.4.162 (Makoto), seharusnya via 192.235.4.129 (Gendo)",
+  "blackhole 192.235.4.72/29 (subnet Lilith)",
+  "policy rule 'from all iif eth0 lookup 100' + 'unreachable default' di table 100 (memblokir traffic yang masuk dari LAN eth0)"
+ ],
+ "fix": "/root/soal9_fix.sh",
+ "checks": [
+  {
+   "label": "Lilith -> Armisael",
+   "ok": true
+  },
+  {
+   "label": "Armisael -> gateway Shigeru",
+   "ok": true
+  },
+  {
+   "label": "Armisael -> internet",
+   "ok": true
+  },
+  {
+   "label": "route Shigeru",
+   "ok": true
+  },
+  {
+   "label": "ip_forward Shigeru",
+   "ok": true
+  }
+ ],
+ "fail": []
+}

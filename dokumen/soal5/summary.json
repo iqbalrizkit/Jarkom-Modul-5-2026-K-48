@@ -1,0 +1,44 @@
+{
+ "policies": {
+  "INPUT": "DROP",
+  "FORWARD": "DROP",
+  "OUTPUT": "ACCEPT"
+ },
+ "policy_ok": true,
+ "missing_rules": [],
+ "accept_for_nat1_source": [],
+ "dhcp_after_firewall": true,
+ "checks": [
+  {
+   "label": "internet dari Armisael",
+   "host": "Armisael",
+   "ok": true
+  },
+  {
+   "label": "internet dari Lilith",
+   "host": "Lilith",
+   "ok": true
+  },
+  {
+   "label": "DNS + internet Armisael",
+   "host": "Armisael",
+   "ok": true
+  },
+  {
+   "label": "antar-LAN Armisael -> Lilith",
+   "host": "Armisael",
+   "ok": true
+  },
+  {
+   "label": "antar-LAN Armisael -> Sachiel",
+   "host": "Armisael",
+   "ok": true
+  },
+  {
+   "label": "DNS node pemasang paket",
+   "host": "Magi-Casper",
+   "ok": true
+  }
+ ],
+ "fail": []
+}

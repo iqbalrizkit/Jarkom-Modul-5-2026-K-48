@@ -1,0 +1,34 @@
+{
+ "causes": [
+  "Misato: SNAT 192.235.4.64/29 -> 172.31.99.1 untuk traffic keluar eth1",
+  "Gendo: aturan RETURN untuk 192.235.4.64/29 membuat Cage lewat MASQUERADE"
+ ],
+ "translated_at": "Gendo (POSTROUTING MASQUERADE ke eth1 / NAT1)",
+ "checks": [
+  {
+   "label": "Unit-01 -> 8.8.8.8",
+   "ok": true
+  },
+  {
+   "label": "Spy -> 8.8.8.8",
+   "ok": true
+  },
+  {
+   "label": "Unit-01 -> Lilith (tanpa NAT)",
+   "ok": true
+  },
+  {
+   "label": "Misato: tidak ada SNAT",
+   "ok": true
+  },
+  {
+   "label": "Gendo: MASQUERADE aktif",
+   "ok": true
+  },
+  {
+   "label": "counter NAT Gendo naik",
+   "ok": true
+  }
+ ],
+ "fail": []
+}

@@ -1,0 +1,7 @@
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+Chain POSTROUTING (policy ACCEPT 13 packets, 1092 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   21  1452 MASQUERADE  all  --  *      eth1    192.235.0.0/16       0.0.0.0/0           
+default via 192.168.122.1 dev eth1 metric 103145 
+nameserver 192.168.122.1

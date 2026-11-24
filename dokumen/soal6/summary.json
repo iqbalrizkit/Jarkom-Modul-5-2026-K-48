@@ -1,0 +1,10 @@
+{
+ "hosts": 25,
+ "ip_and_gateway_ok": 25,
+ "ping_gateway_ok": 25,
+ "unit01_gateway_ok": true,
+ "dns_ok": true,
+ "internet_ok": true,
+ "persistence": "/root/init.sh (dipanggil init container saat restart)",
+ "fail": []
+}

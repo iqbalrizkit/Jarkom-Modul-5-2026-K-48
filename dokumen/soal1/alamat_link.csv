@@ -1,0 +1,17 @@
+Link,Network,Prefix,Parent,IP Parent,Child,IP Child
+Gendo–Yui,192.235.4.108,/30,Gendo,192.235.4.109,Yui,192.235.4.110
+Gendo–Hikari,192.235.4.112,/30,Gendo,192.235.4.113,Hikari,192.235.4.114
+Gendo–Asuka,192.235.4.116,/30,Gendo,192.235.4.117,Asuka,192.235.4.118
+Gendo–Kaji,192.235.4.120,/30,Gendo,192.235.4.121,Kaji,192.235.4.122
+Gendo–Misato,192.235.4.124,/30,Gendo,192.235.4.125,Misato,192.235.4.126
+Gendo–Shigeru,192.235.4.128,/30,Gendo,192.235.4.129,Shigeru,192.235.4.130
+Gendo–Fuyutsuki,192.235.4.132,/30,Gendo,192.235.4.133,Fuyutsuki,192.235.4.134
+Yui–Rei,192.235.4.136,/30,Yui,192.235.4.137,Rei,192.235.4.138
+Yui–Shinji,192.235.4.140,/30,Yui,192.235.4.141,Shinji,192.235.4.142
+Yui–Mari,192.235.4.144,/30,Yui,192.235.4.145,Mari,192.235.4.146
+Hikari–Kaworu,192.235.4.148,/30,Hikari,192.235.4.149,Kaworu,192.235.4.150
+Asuka–Kensuke,192.235.4.152,/30,Asuka,192.235.4.153,Kensuke,192.235.4.154
+Asuka–Ritsuko,192.235.4.156,/30,Asuka,192.235.4.157,Ritsuko,192.235.4.158
+Shigeru–Makoto,192.235.4.160,/30,Shigeru,192.235.4.161,Makoto,192.235.4.162
+Fuyutsuki–Maya,192.235.4.164,/30,Fuyutsuki,192.235.4.165,Maya,192.235.4.166
+Fuyutsuki–Toji,192.235.4.168,/30,Fuyutsuki,192.235.4.169,Toji,192.235.4.170

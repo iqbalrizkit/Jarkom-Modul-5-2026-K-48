@@ -1,0 +1,15 @@
+===== Armisael =====
+eth0             UNKNOWN        192.235.4.83/29 
+default via 192.235.4.81 dev eth0
+
+===== Lilith =====
+eth0             UNKNOWN        192.235.4.74/29 
+default via 192.235.4.73 dev eth0
+
+===== Sachiel =====
+eth0             UNKNOWN        192.235.3.130/26 
+default via 192.235.3.129 dev eth0
+
+===== Comm-Net =====
+eth0             UNKNOWN        192.235.2.2/24 
+default via 192.235.2.1 dev eth0

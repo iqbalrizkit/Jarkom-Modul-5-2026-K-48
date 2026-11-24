@@ -1,0 +1,14 @@
+===== Lilith -> Pen-Pen:80 (192.235.3.194:80) =====
+$ timeout 8 nc -w 3 192.235.3.194 80; echo __RC=$?__
+Welcome to Pen-Pen
+__RC=0__
+
+===== Lilith -> Tokyo3-Core:80 (192.235.4.106:80) =====
+$ timeout 8 nc -w 3 192.235.4.106 80; echo __RC=$?__
+Welcome to Tokyo3-Core
+__RC=0__
+
+===== Lilith -> Tokyo3-Core:8080 (192.235.4.106:8080) =====
+$ timeout 8 nc -w 3 192.235.4.106 8080; echo __RC=$?__
+syifa imutz
+__RC=0__

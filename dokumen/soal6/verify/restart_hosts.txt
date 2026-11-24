@@ -1,0 +1,149 @@
+===== Quarters (setelah restart) =====
+eth0             UNKNOWN        192.235.0.2/23 
+default via 192.235.0.1 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Quarters (192.235.0.0/23)
+
+===== Comm-Net (setelah restart) =====
+eth0             UNKNOWN        192.235.2.2/24 
+default via 192.235.2.1 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Comm-Net (192.235.2.0/24)
+
+===== Hangar-Crew (setelah restart) =====
+eth0             UNKNOWN        192.235.3.2/25 
+default via 192.235.3.1 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Hangar-Crew (192.235.3.0/25)
+
+===== Sachiel (setelah restart) =====
+eth0             UNKNOWN        192.235.3.130/26 
+default via 192.235.3.129 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Sachiel (192.235.3.128/26)
+
+===== Pen-Pen (setelah restart) =====
+eth0             UNKNOWN        192.235.3.194/27 
+default via 192.235.3.193 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Pen-Pen (192.235.3.192/27)
+
+===== Medic-Bay (setelah restart) =====
+eth0             UNKNOWN        192.235.3.195/27 
+default via 192.235.3.193 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Medic-Bay (192.235.3.192/27)
+
+===== Relay-Node (setelah restart) =====
+eth0             UNKNOWN        192.235.3.226/27 
+default via 192.235.3.225 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Relay-Node (192.235.3.224/27)
+
+===== Garden-Staff (setelah restart) =====
+eth0             UNKNOWN        192.235.4.2/27 
+default via 192.235.4.1 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Garden-Staff (192.235.4.0/27)
+
+===== Dock-Crew (setelah restart) =====
+eth0             UNKNOWN        192.235.4.34/28 
+default via 192.235.4.33 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Dock-Crew (192.235.4.32/28)
+
+===== Entry-Plug (setelah restart) =====
+eth0             UNKNOWN        192.235.4.50/29 
+default via 192.235.4.49 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Entry-Plug (192.235.4.48/29)
+
+===== Dummy-Plug (setelah restart) =====
+eth0             UNKNOWN        192.235.4.51/29 
+default via 192.235.4.49 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Dummy-Plug (192.235.4.48/29)
+
+===== Magi-Casper (setelah restart) =====
+eth0             UNKNOWN        192.235.4.58/29 
+default via 192.235.4.57 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Magi-Casper (192.235.4.56/29)
+
+===== Magi-Balthasar (setelah restart) =====
+eth0             UNKNOWN        192.235.4.59/29 
+default via 192.235.4.57 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Magi-Balthasar (192.235.4.56/29)
+
+===== Magi-Melchior (setelah restart) =====
+eth0             UNKNOWN        192.235.4.60/29 
+default via 192.235.4.57 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Magi-Melchior (192.235.4.56/29)
+
+===== Unit-01 (setelah restart) =====
+eth0             UNKNOWN        192.235.4.66/29 
+default via 192.235.4.65 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Unit-01 (192.235.4.64/29)
+
+===== Unit-02 (setelah restart) =====
+eth0             UNKNOWN        192.235.4.67/29 
+default via 192.235.4.65 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Unit-02 (192.235.4.64/29)
+
+===== Unit-00 (setelah restart) =====
+eth0             UNKNOWN        192.235.4.68/29 
+default via 192.235.4.65 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Unit-00 (192.235.4.64/29)
+
+===== Lilith (setelah restart) =====
+eth0             UNKNOWN        192.235.4.74/29 
+default via 192.235.4.73 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Lilith (192.235.4.72/29)
+
+===== Adam (setelah restart) =====
+eth0             UNKNOWN        192.235.4.75/29 
+default via 192.235.4.73 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Adam (192.235.4.72/29)
+
+===== Zeruel (setelah restart) =====
+eth0             UNKNOWN        192.235.4.82/29 
+default via 192.235.4.81 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Zeruel (192.235.4.80/29)
+
+===== Armisael (setelah restart) =====
+eth0             UNKNOWN        192.235.4.83/29 
+default via 192.235.4.81 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Armisael (192.235.4.80/29)
+
+===== Radar-Array (setelah restart) =====
+eth0             UNKNOWN        192.235.4.90/29 
+default via 192.235.4.89 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Radar-Array (192.235.4.88/29)
+
+===== Archive-Vault (setelah restart) =====
+eth0             UNKNOWN        192.235.4.98/30 
+default via 192.235.4.97 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Archive-Vault (192.235.4.96/30)
+
+===== Spy (setelah restart) =====
+eth0             UNKNOWN        192.235.4.102/30 
+default via 192.235.4.101 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Spy (192.235.4.100/30)
+
+===== Tokyo3-Core (setelah restart) =====
+eth0             UNKNOWN        192.235.4.106/30 
+default via 192.235.4.105 dev eth0 
+#!/bin/sh
+# Soal 6 - IP permanen Tokyo3-Core (192.235.4.104/30)

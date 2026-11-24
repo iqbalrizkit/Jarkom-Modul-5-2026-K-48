@@ -1,0 +1,7 @@
+NAT aktif: 192.235.0.0/16 -> eth1
+__RC=0__
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+Chain POSTROUTING (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    0     0 MASQUERADE  all  --  *      eth1    192.235.0.0/16       0.0.0.0/0           

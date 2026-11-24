@@ -1,0 +1,14 @@
+eth1             UNKNOWN        192.168.122.66/24 
+---
+default via 192.168.122.1 dev eth1 metric 103145 
+192.168.122.0/24 dev eth1 proto kernel scope link src 192.168.122.66 
+192.235.4.104/30 dev eth0 proto kernel scope link src 192.235.4.105 
+192.235.4.108/30 dev eth2 proto kernel scope link src 192.235.4.109 
+192.235.4.112/30 dev eth3 proto kernel scope link src 192.235.4.113 
+192.235.4.116/30 dev eth4 proto kernel scope link src 192.235.4.117 
+192.235.4.120/30 dev eth5 proto kernel scope link src 192.235.4.121 
+192.235.4.124/30 dev eth6 proto kernel scope link src 192.235.4.125 
+192.235.4.128/30 dev eth7 proto kernel scope link src 192.235.4.129 
+192.235.4.132/30 dev eth8 proto kernel scope link src 192.235.4.133 
+---
+1

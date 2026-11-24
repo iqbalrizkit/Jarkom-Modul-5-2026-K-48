@@ -1,0 +1,37 @@
+{
+ "servers": {
+  "Pen-Pen": [
+   80
+  ],
+  "Tokyo3-Core": [
+   80,
+   8080
+  ]
+ },
+ "probes": [
+  {
+   "label": "Pen-Pen:80",
+   "host": "Pen-Pen",
+   "port": 80,
+   "expect": "Welcome to Pen-Pen",
+   "ok": true
+  },
+  {
+   "label": "Tokyo3-Core:80",
+   "host": "Tokyo3-Core",
+   "port": 80,
+   "expect": "Welcome to Tokyo3-Core",
+   "ok": true
+  },
+  {
+   "label": "Tokyo3-Core:8080",
+   "host": "Tokyo3-Core",
+   "port": 8080,
+   "expect": "syifa imutz",
+   "ok": true
+  }
+ ],
+ "closed_port_22_fast": true,
+ "listeners_ok": true,
+ "fail": []
+}

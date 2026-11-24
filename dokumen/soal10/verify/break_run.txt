@@ -1,0 +1,7 @@
+===== Misato: break_nat.sh =====
+Script sudah dirusak
+__RC=0__
+
+===== Gendo: break_nat.sh =====
+Script sudah dirusak
+__RC=0__

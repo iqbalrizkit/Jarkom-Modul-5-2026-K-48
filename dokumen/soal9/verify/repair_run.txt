@@ -1,0 +1,11 @@
+Shigeru diperbaiki: forwarding aktif, default via Gendo, blackhole & policy rule dihapus
+0:	from all lookup local
+32766:	from all lookup main
+32767:	from all lookup default
+default via 192.235.4.129 dev eth1 
+192.235.4.80/29 dev eth0 proto kernel scope link src 192.235.4.81 
+192.235.4.88/29 via 192.235.4.162 dev eth2 
+192.235.4.128/30 dev eth1 proto kernel scope link src 192.235.4.130 
+192.235.4.160/30 dev eth2 proto kernel scope link src 192.235.4.161 
+1
+__RC=0__

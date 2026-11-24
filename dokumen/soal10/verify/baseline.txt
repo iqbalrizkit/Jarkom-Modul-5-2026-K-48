@@ -1,0 +1,80 @@
+===== Gendo: ip route | head -12 =====
+default via 192.168.122.1 dev eth1 metric 103145 
+192.168.122.0/24 dev eth1 proto kernel scope link src 192.168.122.66 
+192.235.0.0/23 via 192.235.4.110 dev eth2 
+192.235.2.0/24 via 192.235.4.114 dev eth3 
+192.235.3.0/25 via 192.235.4.110 dev eth2 
+192.235.3.128/26 via 192.235.4.118 dev eth4 
+192.235.3.192/27 via 192.235.4.134 dev eth8 
+192.235.3.224/27 via 192.235.4.114 dev eth3 
+192.235.4.0/27 via 192.235.4.110 dev eth2 
+192.235.4.32/28 via 192.235.4.110 dev eth2 
+192.235.4.48/29 via 192.235.4.118 dev eth4 
+192.235.4.56/29 via 192.235.4.134 dev eth8
+
+===== Gendo: iptables -t nat -S POSTROUTING =====
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+
+===== Gendo: iptables -S =====
+-P INPUT DROP
+-P FORWARD DROP
+-P OUTPUT ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p udp -m udp --sport 67 --dport 68 -j ACCEPT
+-A INPUT -s 192.235.0.0/16 -j ACCEPT
+-A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A FORWARD -s 192.235.0.0/16 -o eth1 -j ACCEPT
+-A FORWARD -s 192.235.0.0/16 -d 192.235.0.0/16 -j ACCEPT
+-A OUTPUT -o lo -j ACCEPT
+-A OUTPUT -p udp -m udp --sport 68 --dport 67 -j ACCEPT
+
+===== Gendo: cat /proc/sys/net/ipv4/ip_forward =====
+1
+
+===== Misato: ip route =====
+default via 192.235.4.125 dev eth1 
+192.235.4.64/29 dev eth0 proto kernel scope link src 192.235.4.65 
+192.235.4.124/30 dev eth1 proto kernel scope link src 192.235.4.126
+
+===== Misato: iptables -t nat -S POSTROUTING =====
+-P POSTROUTING ACCEPT
+
+===== Misato: iptables -S =====
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+
+===== Misato: cat /proc/sys/net/ipv4/ip_forward =====
+1
+
+===== Unit-01: ping -c 2 -W 2 8.8.8.8; echo __RC=$?__ =====
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=20.7 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=20.3 ms
+
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1109ms
+rtt min/avg/max/mdev = 20.278/20.508/20.739/0.230 ms
+__RC=0__
+
+===== Unit-01: ping -c 2 -W 2 192.235.4.74; echo __RC=$?__ =====
+PING 192.235.4.74 (192.235.4.74) 56(84) bytes of data.
+64 bytes from 192.235.4.74: icmp_seq=1 ttl=60 time=0.763 ms
+64 bytes from 192.235.4.74: icmp_seq=2 ttl=60 time=0.796 ms
+
+--- 192.235.4.74 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1168ms
+rtt min/avg/max/mdev = 0.763/0.779/0.796/0.016 ms
+__RC=0__
+
+===== Spy: ping -c 2 -W 2 8.8.8.8; echo __RC=$?__ =====
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=20.5 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=20.5 ms
+
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1111ms
+rtt min/avg/max/mdev = 20.517/20.531/20.545/0.014 ms
+__RC=0__

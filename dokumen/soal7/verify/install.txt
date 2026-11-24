@@ -1,0 +1,40 @@
+===== Magi-Casper =====
+Selecting previously unselected package netcat-traditional.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10187 files and directories currently installed.)
+Preparing to unpack .../netcat-traditional_1.10-50_amd64.deb ...
+Unpacking netcat-traditional (1.10-50) ...
+Setting up netcat-traditional (1.10-50) ...
+netcat: /usr/bin/nc.traditional
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=176,fd=3))
+__RC=0__
+ii  iptables           1.8.11-2     amd64        administration tools for packet filtering and NAT
+ii  netcat-traditional 1.10-50      amd64        TCP/IP swiss army knife
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=176,fd=3))
+
+===== Magi-Balthasar =====
+Selecting previously unselected package netcat-traditional.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10187 files and directories currently installed.)
+Preparing to unpack .../netcat-traditional_1.10-50_amd64.deb ...
+Unpacking netcat-traditional (1.10-50) ...
+Setting up netcat-traditional (1.10-50) ...
+netcat: /usr/bin/nc.traditional
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=149,fd=3))
+LISTEN 0      1            0.0.0.0:5001      0.0.0.0:*    users:(("nc.traditional",pid=150,fd=3))
+__RC=0__
+ii  iptables           1.8.11-2     amd64        administration tools for packet filtering and NAT
+ii  netcat-traditional 1.10-50      amd64        TCP/IP swiss army knife
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=149,fd=3))
+LISTEN 0      1            0.0.0.0:5001      0.0.0.0:*    users:(("nc.traditional",pid=150,fd=3))
+
+===== Magi-Melchior =====
+Selecting previously unselected package netcat-traditional.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 10187 files and directories currently installed.)
+Preparing to unpack .../netcat-traditional_1.10-50_amd64.deb ...
+Unpacking netcat-traditional (1.10-50) ...
+Setting up netcat-traditional (1.10-50) ...
+netcat: /usr/bin/nc.traditional
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=150,fd=3))
+__RC=0__
+ii  iptables           1.8.11-2     amd64        administration tools for packet filtering and NAT
+ii  netcat-traditional 1.10-50      amd64        TCP/IP swiss army knife
+LISTEN 0      1            0.0.0.0:5000      0.0.0.0:*    users:(("nc.traditional",pid=150,fd=3))

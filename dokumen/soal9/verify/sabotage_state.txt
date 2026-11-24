@@ -1,0 +1,62 @@
+===== Lilith: ping -c 4 -W 2 192.235.4.83; echo __RC=$?__ =====
+PING 192.235.4.83 (192.235.4.83) 56(84) bytes of data.
+
+--- 192.235.4.83 ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3429ms
+
+__RC=1__
+
+===== Armisael: ping -c 4 -W 2 192.235.4.81; echo __RC=$?__ =====
+PING 192.235.4.81 (192.235.4.81) 56(84) bytes of data.
+64 bytes from 192.235.4.81: icmp_seq=1 ttl=64 time=0.976 ms
+64 bytes from 192.235.4.81: icmp_seq=2 ttl=64 time=0.352 ms
+64 bytes from 192.235.4.81: icmp_seq=3 ttl=64 time=0.411 ms
+64 bytes from 192.235.4.81: icmp_seq=4 ttl=64 time=0.191 ms
+
+--- 192.235.4.81 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3380ms
+rtt min/avg/max/mdev = 0.191/0.482/0.976/0.296 ms
+__RC=0__
+
+===== Armisael: ip -br a show eth0 =====
+eth0             UNKNOWN        192.235.4.83/29
+
+===== Armisael: ip route show default =====
+default via 192.235.4.81 dev eth0
+
+===== Shigeru: ip route =====
+default via 192.235.4.162 dev eth2 
+blackhole 192.235.4.72/29 
+192.235.4.80/29 dev eth0 proto kernel scope link src 192.235.4.81 
+192.235.4.88/29 via 192.235.4.162 dev eth2 
+192.235.4.128/30 dev eth1 proto kernel scope link src 192.235.4.130 
+192.235.4.160/30 dev eth2 proto kernel scope link src 192.235.4.161
+
+===== Shigeru: cat /proc/sys/net/ipv4/ip_forward =====
+0
+
+===== Shigeru: iptables -S =====
+-P INPUT ACCEPT
+-P FORWARD ACCEPT
+-P OUTPUT ACCEPT
+
+===== Shigeru: ip -br a =====
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.4.81/29 
+eth1             UNKNOWN        192.235.4.130/30 
+eth2             UNKNOWN        192.235.4.161/30
+
+===== Shigeru: ip neigh show =====
+192.235.4.129 dev eth1 lladdr 02:42:26:85:fd:07 STALE 
+192.235.4.83 dev eth0 lladdr 02:42:2f:3d:2d:00 REACHABLE
+===== Shigeru: ip rule (sebelum perbaikan) =====
+0:	from all lookup local
+90:	from all iif eth0 lookup 100
+32766:	from all lookup main
+32767:	from all lookup default
+
+===== Shigeru: ip route show table 100 (sebelum perbaikan) =====
+unreachable default 
+
+===== Shigeru: ip route get 8.8.8.8 from 192.235.4.83 iif eth0 (sebelum perbaikan) =====
+RTNETLINK answers: Host is unreachable

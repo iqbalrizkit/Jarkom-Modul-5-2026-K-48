@@ -1,0 +1,32 @@
+===== Lilith -> Armisael =====
+PING 192.235.4.83 (192.235.4.83) 56(84) bytes of data.
+64 bytes from 192.235.4.83: icmp_seq=1 ttl=60 time=0.938 ms
+64 bytes from 192.235.4.83: icmp_seq=2 ttl=60 time=1.31 ms
+64 bytes from 192.235.4.83: icmp_seq=3 ttl=60 time=1.27 ms
+
+--- 192.235.4.83 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2224ms
+rtt min/avg/max/mdev = 0.938/1.171/1.306/0.165 ms
+__RC=0__
+
+===== Sachiel -> Armisael =====
+PING 192.235.4.83 (192.235.4.83) 56(84) bytes of data.
+64 bytes from 192.235.4.83: icmp_seq=1 ttl=60 time=1.74 ms
+64 bytes from 192.235.4.83: icmp_seq=2 ttl=60 time=0.990 ms
+64 bytes from 192.235.4.83: icmp_seq=3 ttl=60 time=0.843 ms
+
+--- 192.235.4.83 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2224ms
+rtt min/avg/max/mdev = 0.843/1.192/1.744/0.394 ms
+__RC=0__
+
+===== Comm-Net -> Armisael =====
+PING 192.235.4.83 (192.235.4.83) 56(84) bytes of data.
+64 bytes from 192.235.4.83: icmp_seq=1 ttl=61 time=0.990 ms
+64 bytes from 192.235.4.83: icmp_seq=2 ttl=61 time=0.789 ms
+64 bytes from 192.235.4.83: icmp_seq=3 ttl=61 time=0.679 ms
+
+--- 192.235.4.83 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2279ms
+rtt min/avg/max/mdev = 0.679/0.819/0.990/0.128 ms
+__RC=0__

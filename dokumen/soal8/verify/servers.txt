@@ -1,0 +1,12 @@
+===== Pen-Pen =====
+LISTEN 0      1            0.0.0.0:80        0.0.0.0:*    users:(("nc",pid=108,fd=3))
+[1]+  Terminated                 nohup sh -c "while true; do printf 'Welcome to %s\n' \$(hostname) | nc -N -l 80; done" > /dev/null 2>&1
+__RC=0__
+LISTEN 0      1            0.0.0.0:80        0.0.0.0:*    users:(("nc",pid=108,fd=3))
+
+===== Tokyo3-Core =====
+LISTEN 0      1            0.0.0.0:8080      0.0.0.0:*    users:(("nc",pid=99,fd=3))
+LISTEN 0      1            0.0.0.0:80        0.0.0.0:*    users:(("nc",pid=97,fd=3))
+__RC=0__
+LISTEN 0      1            0.0.0.0:8080      0.0.0.0:*    users:(("nc",pid=99,fd=3))
+LISTEN 0      1            0.0.0.0:80        0.0.0.0:*    users:(("nc",pid=97,fd=3))

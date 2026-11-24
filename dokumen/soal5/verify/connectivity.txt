@@ -1,0 +1,70 @@
+===== internet dari Armisael (Armisael) =====
+$ ping -c 4 -W 2 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=20.1 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=20.2 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=20.3 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=21.0 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3331ms
+rtt min/avg/max/mdev = 20.101/20.402/20.997/0.354 ms
+__RC=0__
+
+===== internet dari Lilith (Lilith) =====
+$ ping -c 4 -W 2 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=109 time=21.5 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=109 time=21.3 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=109 time=20.2 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=109 time=20.3 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3330ms
+rtt min/avg/max/mdev = 20.224/20.842/21.520/0.590 ms
+__RC=0__
+
+===== DNS + internet Armisael (Armisael) =====
+$ ping -c 4 -W 2 deb.debian.org
+PING debian.map.fastlydns.net (151.101.66.132) 56(84) bytes of data.
+64 bytes from 151.101.66.132: icmp_seq=1 ttl=243 time=20.5 ms
+64 bytes from 151.101.66.132: icmp_seq=2 ttl=243 time=19.9 ms
+64 bytes from 151.101.66.132: icmp_seq=3 ttl=243 time=19.6 ms
+64 bytes from 151.101.66.132: icmp_seq=4 ttl=243 time=19.2 ms
+
+--- debian.map.fastlydns.net ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3327ms
+rtt min/avg/max/mdev = 19.213/19.813/20.536/0.480 ms
+__RC=0__
+
+===== antar-LAN Armisael -> Lilith (Armisael) =====
+$ ping -c 4 -W 2 192.235.4.74
+PING 192.235.4.74 (192.235.4.74) 56(84) bytes of data.
+64 bytes from 192.235.4.74: icmp_seq=1 ttl=60 time=0.885 ms
+64 bytes from 192.235.4.74: icmp_seq=2 ttl=60 time=0.918 ms
+64 bytes from 192.235.4.74: icmp_seq=3 ttl=60 time=0.676 ms
+64 bytes from 192.235.4.74: icmp_seq=4 ttl=60 time=1.73 ms
+
+--- 192.235.4.74 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3338ms
+rtt min/avg/max/mdev = 0.676/1.051/1.725/0.400 ms
+__RC=0__
+
+===== antar-LAN Armisael -> Sachiel (Armisael) =====
+$ ping -c 4 -W 2 192.235.3.130
+PING 192.235.3.130 (192.235.3.130) 56(84) bytes of data.
+64 bytes from 192.235.3.130: icmp_seq=1 ttl=60 time=0.876 ms
+64 bytes from 192.235.3.130: icmp_seq=2 ttl=60 time=0.929 ms
+64 bytes from 192.235.3.130: icmp_seq=3 ttl=60 time=0.828 ms
+64 bytes from 192.235.3.130: icmp_seq=4 ttl=60 time=1.17 ms
+
+--- 192.235.3.130 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3336ms
+rtt min/avg/max/mdev = 0.828/0.951/1.174/0.133 ms
+__RC=0__
+
+===== DNS node pemasang paket (Magi-Casper) =====
+$ getent ahostsv4 deb.debian.org | head -2
+151.101.130.132 STREAM debian.map.fastlydns.net
+151.101.130.132 DGRAM  
+__RC=0__

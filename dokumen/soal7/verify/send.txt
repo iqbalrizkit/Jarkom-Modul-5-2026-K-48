@@ -1,0 +1,15 @@
+===== Lilith -> Casper-5000 (192.235.4.58:5000) =====
+$ printf '%s\n' 'HALO CASPER DARI LILITH' | timeout 8 nc -w 3 192.235.4.58 5000; echo __RC=$?__
+__RC=0__
+
+===== Lilith -> Balthasar-5000 (192.235.4.59:5000) =====
+$ printf '%s\n' 'HALO BALTHASAR PORT 5000 DARI LILITH' | timeout 8 nc -w 3 192.235.4.59 5000; echo __RC=$?__
+__RC=0__
+
+===== Lilith -> Balthasar-5001 (192.235.4.59:5001) =====
+$ printf '%s\n' 'HALO BALTHASAR PORT 5001 DARI LILITH' | timeout 8 nc -w 3 192.235.4.59 5001; echo __RC=$?__
+__RC=0__
+
+===== Lilith -> Melchior-5000 (192.235.4.60:5000) =====
+$ printf '%s\n' 'HALO MELCHIOR DARI LILITH' | timeout 8 nc -w 3 192.235.4.60 5000; echo __RC=$?__
+__RC=0__

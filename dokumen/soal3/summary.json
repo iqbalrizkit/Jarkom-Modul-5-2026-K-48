@@ -1,0 +1,54 @@
+{
+ "routes_total": 31,
+ "default_routes": 16,
+ "per_router": {
+  "Rei": 0,
+  "Hikari": 1,
+  "Yui": 3,
+  "Kensuke": 0,
+  "Maya": 0,
+  "Kaworu": 0,
+  "Shinji": 0,
+  "Mari": 0,
+  "Ritsuko": 0,
+  "Fuyutsuki": 2,
+  "Misato": 0,
+  "Toji": 0,
+  "Shigeru": 1,
+  "Makoto": 0,
+  "Asuka": 2,
+  "Kaji": 0,
+  "Gendo": 22
+ },
+ "ping_fail": [],
+ "test_hosts": {
+  "Armisael": {
+   "ip": "192.235.4.83",
+   "prefix": 29,
+   "gateway": "192.235.4.81",
+   "switch": "Switch-Monolith",
+   "router": "Shigeru"
+  },
+  "Lilith": {
+   "ip": "192.235.4.74",
+   "prefix": 29,
+   "gateway": "192.235.4.73",
+   "switch": "Switch-Dogma",
+   "router": "Toji"
+  },
+  "Sachiel": {
+   "ip": "192.235.3.130",
+   "prefix": 26,
+   "gateway": "192.235.3.129",
+   "switch": "Switch-Bunker",
+   "router": "Kensuke"
+  },
+  "Comm-Net": {
+   "ip": "192.235.2.2",
+   "prefix": 24,
+   "gateway": "192.235.2.1",
+   "switch": "Switch-Comm",
+   "router": "Hikari"
+  }
+ }
+}

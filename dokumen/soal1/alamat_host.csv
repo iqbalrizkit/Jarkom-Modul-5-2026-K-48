@@ -1,0 +1,26 @@
+Switch,Router,Container,Jumlah Host,IP,Gateway,Prefix
+Switch-Quarters,Rei,Quarters,500,192.235.0.2,192.235.0.1,/23
+Switch-Comm,Hikari,Comm-Net,200,192.235.2.2,192.235.2.1,/24
+Switch-Hangar,Yui,Hangar-Crew,100,192.235.3.2,192.235.3.1,/25
+Switch-Bunker,Kensuke,Sachiel,55,192.235.3.130,192.235.3.129,/26
+Switch-Medic,Maya,Pen-Pen,1,192.235.3.194,192.235.3.193,/27
+Switch-Medic,Maya,Medic-Bay,25,192.235.3.195,192.235.3.193,/27
+Switch-Relay,Kaworu,Relay-Node,25,192.235.3.226,192.235.3.225,/27
+Switch-Garden,Shinji,Garden-Staff,14,192.235.4.2,192.235.4.1,/27
+Switch-Dock,Mari,Dock-Crew,12,192.235.4.34,192.235.4.33,/28
+Switch-Lab,Ritsuko,Entry-Plug,3,192.235.4.50,192.235.4.49,/29
+Switch-Lab,Ritsuko,Dummy-Plug,2,192.235.4.51,192.235.4.49,/29
+Switch-Terminal,Fuyutsuki,Magi-Casper,1,192.235.4.58,192.235.4.57,/29
+Switch-Terminal,Fuyutsuki,Magi-Balthasar,1,192.235.4.59,192.235.4.57,/29
+Switch-Terminal,Fuyutsuki,Magi-Melchior,1,192.235.4.60,192.235.4.57,/29
+Switch-Cage,Misato,Unit-01,1,192.235.4.66,192.235.4.65,/29
+Switch-Cage,Misato,Unit-02,1,192.235.4.67,192.235.4.65,/29
+Switch-Cage,Misato,Unit-00,1,192.235.4.68,192.235.4.65,/29
+Switch-Dogma,Toji,Lilith,1,192.235.4.74,192.235.4.73,/29
+Switch-Dogma,Toji,Adam,1,192.235.4.75,192.235.4.73,/29
+Switch-Monolith,Shigeru,Zeruel,1,192.235.4.82,192.235.4.81,/29
+Switch-Monolith,Shigeru,Armisael,1,192.235.4.83,192.235.4.81,/29
+Switch-Radar,Makoto,Radar-Array,4,192.235.4.90,192.235.4.89,/29
+Switch-Archive,Asuka,Archive-Vault,1,192.235.4.98,192.235.4.97,/30
+Switch-Intel,Kaji,Spy,1,192.235.4.102,192.235.4.101,/30
+Switch-Cmd,Gendo,Tokyo3-Core,1,192.235.4.106,192.235.4.105,/30

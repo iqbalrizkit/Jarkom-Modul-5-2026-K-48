@@ -1,0 +1,159 @@
+===== Gendo -> Yui (192.235.4.110) =====
+PING 192.235.4.110 (192.235.4.110) 56(84) bytes of data.
+64 bytes from 192.235.4.110: icmp_seq=1 ttl=64 time=0.596 ms
+64 bytes from 192.235.4.110: icmp_seq=2 ttl=64 time=0.149 ms
+
+--- 192.235.4.110 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1143ms
+rtt min/avg/max/mdev = 0.149/0.372/0.596/0.223 ms
+__RC=0__
+
+===== Gendo -> Hikari (192.235.4.114) =====
+PING 192.235.4.114 (192.235.4.114) 56(84) bytes of data.
+64 bytes from 192.235.4.114: icmp_seq=1 ttl=64 time=0.321 ms
+64 bytes from 192.235.4.114: icmp_seq=2 ttl=64 time=0.215 ms
+
+--- 192.235.4.114 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1150ms
+rtt min/avg/max/mdev = 0.215/0.268/0.321/0.053 ms
+__RC=0__
+
+===== Gendo -> Asuka (192.235.4.118) =====
+PING 192.235.4.118 (192.235.4.118) 56(84) bytes of data.
+64 bytes from 192.235.4.118: icmp_seq=1 ttl=64 time=0.929 ms
+64 bytes from 192.235.4.118: icmp_seq=2 ttl=64 time=0.417 ms
+
+--- 192.235.4.118 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.417/0.673/0.929/0.256 ms
+__RC=0__
+
+===== Gendo -> Kaji (192.235.4.122) =====
+PING 192.235.4.122 (192.235.4.122) 56(84) bytes of data.
+64 bytes from 192.235.4.122: icmp_seq=1 ttl=64 time=0.458 ms
+64 bytes from 192.235.4.122: icmp_seq=2 ttl=64 time=0.579 ms
+
+--- 192.235.4.122 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1180ms
+rtt min/avg/max/mdev = 0.458/0.518/0.579/0.060 ms
+__RC=0__
+
+===== Gendo -> Misato (192.235.4.126) =====
+PING 192.235.4.126 (192.235.4.126) 56(84) bytes of data.
+64 bytes from 192.235.4.126: icmp_seq=1 ttl=64 time=0.517 ms
+64 bytes from 192.235.4.126: icmp_seq=2 ttl=64 time=0.157 ms
+
+--- 192.235.4.126 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1148ms
+rtt min/avg/max/mdev = 0.157/0.337/0.517/0.180 ms
+__RC=0__
+
+===== Gendo -> Shigeru (192.235.4.130) =====
+PING 192.235.4.130 (192.235.4.130) 56(84) bytes of data.
+64 bytes from 192.235.4.130: icmp_seq=1 ttl=64 time=1.18 ms
+64 bytes from 192.235.4.130: icmp_seq=2 ttl=64 time=0.305 ms
+
+--- 192.235.4.130 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.305/0.741/1.177/0.436 ms
+__RC=0__
+
+===== Gendo -> Fuyutsuki (192.235.4.134) =====
+PING 192.235.4.134 (192.235.4.134) 56(84) bytes of data.
+64 bytes from 192.235.4.134: icmp_seq=1 ttl=64 time=0.425 ms
+64 bytes from 192.235.4.134: icmp_seq=2 ttl=64 time=0.134 ms
+
+--- 192.235.4.134 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1168ms
+rtt min/avg/max/mdev = 0.134/0.279/0.425/0.145 ms
+__RC=0__
+
+===== Yui -> Rei (192.235.4.138) =====
+PING 192.235.4.138 (192.235.4.138) 56(84) bytes of data.
+64 bytes from 192.235.4.138: icmp_seq=1 ttl=64 time=1.41 ms
+64 bytes from 192.235.4.138: icmp_seq=2 ttl=64 time=0.198 ms
+
+--- 192.235.4.138 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1112ms
+rtt min/avg/max/mdev = 0.198/0.804/1.410/0.606 ms
+__RC=0__
+
+===== Yui -> Shinji (192.235.4.142) =====
+PING 192.235.4.142 (192.235.4.142) 56(84) bytes of data.
+64 bytes from 192.235.4.142: icmp_seq=1 ttl=64 time=0.322 ms
+64 bytes from 192.235.4.142: icmp_seq=2 ttl=64 time=0.161 ms
+
+--- 192.235.4.142 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1125ms
+rtt min/avg/max/mdev = 0.161/0.241/0.322/0.080 ms
+__RC=0__
+
+===== Yui -> Mari (192.235.4.146) =====
+PING 192.235.4.146 (192.235.4.146) 56(84) bytes of data.
+64 bytes from 192.235.4.146: icmp_seq=1 ttl=64 time=0.570 ms
+64 bytes from 192.235.4.146: icmp_seq=2 ttl=64 time=0.477 ms
+
+--- 192.235.4.146 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1148ms
+rtt min/avg/max/mdev = 0.477/0.523/0.570/0.046 ms
+__RC=0__
+
+===== Hikari -> Kaworu (192.235.4.150) =====
+PING 192.235.4.150 (192.235.4.150) 56(84) bytes of data.
+64 bytes from 192.235.4.150: icmp_seq=1 ttl=64 time=0.349 ms
+64 bytes from 192.235.4.150: icmp_seq=2 ttl=64 time=0.177 ms
+
+--- 192.235.4.150 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1158ms
+rtt min/avg/max/mdev = 0.177/0.263/0.349/0.086 ms
+__RC=0__
+
+===== Asuka -> Kensuke (192.235.4.154) =====
+PING 192.235.4.154 (192.235.4.154) 56(84) bytes of data.
+64 bytes from 192.235.4.154: icmp_seq=1 ttl=64 time=0.329 ms
+64 bytes from 192.235.4.154: icmp_seq=2 ttl=64 time=0.147 ms
+
+--- 192.235.4.154 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1140ms
+rtt min/avg/max/mdev = 0.147/0.238/0.329/0.091 ms
+__RC=0__
+
+===== Asuka -> Ritsuko (192.235.4.158) =====
+PING 192.235.4.158 (192.235.4.158) 56(84) bytes of data.
+64 bytes from 192.235.4.158: icmp_seq=1 ttl=64 time=0.677 ms
+64 bytes from 192.235.4.158: icmp_seq=2 ttl=64 time=0.182 ms
+
+--- 192.235.4.158 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1131ms
+rtt min/avg/max/mdev = 0.182/0.429/0.677/0.247 ms
+__RC=0__
+
+===== Shigeru -> Makoto (192.235.4.162) =====
+PING 192.235.4.162 (192.235.4.162) 56(84) bytes of data.
+64 bytes from 192.235.4.162: icmp_seq=1 ttl=64 time=0.492 ms
+64 bytes from 192.235.4.162: icmp_seq=2 ttl=64 time=0.150 ms
+
+--- 192.235.4.162 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1163ms
+rtt min/avg/max/mdev = 0.150/0.321/0.492/0.171 ms
+__RC=0__
+
+===== Fuyutsuki -> Maya (192.235.4.166) =====
+PING 192.235.4.166 (192.235.4.166) 56(84) bytes of data.
+64 bytes from 192.235.4.166: icmp_seq=1 ttl=64 time=0.382 ms
+64 bytes from 192.235.4.166: icmp_seq=2 ttl=64 time=0.219 ms
+
+--- 192.235.4.166 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1137ms
+rtt min/avg/max/mdev = 0.219/0.300/0.382/0.081 ms
+__RC=0__
+
+===== Fuyutsuki -> Toji (192.235.4.170) =====
+PING 192.235.4.170 (192.235.4.170) 56(84) bytes of data.
+64 bytes from 192.235.4.170: icmp_seq=1 ttl=64 time=0.612 ms
+64 bytes from 192.235.4.170: icmp_seq=2 ttl=64 time=0.156 ms
+
+--- 192.235.4.170 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1137ms
+rtt min/avg/max/mdev = 0.156/0.384/0.612/0.228 ms
+__RC=0__

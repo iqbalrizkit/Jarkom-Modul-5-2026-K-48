@@ -1,0 +1,53 @@
+===== Unit-01 -> 8.8.8.8 (Unit-01) =====
+$ ping -c 4 -W 2 8.8.8.8; echo __RC=$?__
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=21.3 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=19.9 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=20.4 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=20.5 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3330ms
+rtt min/avg/max/mdev = 19.913/20.515/21.282/0.492 ms
+__RC=0__
+
+===== Spy -> 8.8.8.8 (Spy) =====
+$ ping -c 4 -W 2 8.8.8.8; echo __RC=$?__
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=110 time=20.3 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=110 time=20.2 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=110 time=20.2 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=110 time=20.1 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3330ms
+rtt min/avg/max/mdev = 20.148/20.236/20.324/0.062 ms
+__RC=0__
+
+===== Unit-01 -> Lilith (tanpa NAT) (Unit-01) =====
+$ ping -c 4 -W 2 192.235.4.74; echo __RC=$?__
+PING 192.235.4.74 (192.235.4.74) 56(84) bytes of data.
+64 bytes from 192.235.4.74: icmp_seq=1 ttl=60 time=1.32 ms
+64 bytes from 192.235.4.74: icmp_seq=2 ttl=60 time=0.971 ms
+64 bytes from 192.235.4.74: icmp_seq=3 ttl=60 time=0.837 ms
+64 bytes from 192.235.4.74: icmp_seq=4 ttl=60 time=0.659 ms
+
+--- 192.235.4.74 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3336ms
+rtt min/avg/max/mdev = 0.659/0.946/1.319/0.241 ms
+__RC=0__
+
+===== Misato: tidak ada SNAT (Misato) =====
+$ iptables -t nat -S POSTROUTING
+-P POSTROUTING ACCEPT
+
+===== Gendo: MASQUERADE aktif (Gendo) =====
+$ iptables -t nat -S POSTROUTING
+-P POSTROUTING ACCEPT
+-A POSTROUTING -s 192.235.0.0/16 -o eth1 -j MASQUERADE
+
+===== NAT counter Gendo =====
+sebelum:
+66  4781 MASQUERADE  all  --  *      eth1    192.235.0.0/16       0.0.0.0/0
+sesudah Unit-01 ping internet:
+67  4865 MASQUERADE  all  --  *      eth1    192.235.0.0/16       0.0.0.0/0

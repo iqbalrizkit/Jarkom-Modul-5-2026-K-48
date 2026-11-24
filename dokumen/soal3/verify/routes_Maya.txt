@@ -1,0 +1,7 @@
+default via 192.235.4.165 dev eth1 
+192.235.3.192/27 dev eth0 proto kernel scope link src 192.235.3.193 
+192.235.4.164/30 dev eth1 proto kernel scope link src 192.235.4.166 
+---
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UNKNOWN        192.235.3.193/27 
+eth1             UNKNOWN        192.235.4.166/30 
