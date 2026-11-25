@@ -1,0 +1,16 @@
+Node: Misato
+Sumber: file yang sedang ada di /root pada container GNS3.
+Struktur: script/<node>/<soal>/<nama file asli di /root>
+
+soal10:
+  /root/break_nat.sh  ->  script/Misato/soal10/break_nat.sh
+  /root/soal10_fix.sh  ->  script/Misato/soal10/soal10_fix.sh
+soal2:
+  /root/soal2.sh  ->  script/Misato/soal2/soal2.sh
+soal3:
+  /root/soal3.sh  ->  script/Misato/soal3/soal3.sh
+
+Catatan:
+- demo.sh sengaja tidak disalin (sesuai permintaan).
+- Alias /root/soal_3.sh dan /root/soal_3 tidak disalin;
+  keduanya symlink ke /root/soal3.sh.

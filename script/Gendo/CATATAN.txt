@@ -1,0 +1,24 @@
+Node: Gendo
+Sumber: file yang sedang ada di /root pada container GNS3.
+Struktur: script/<node>/<soal>/<nama file asli di /root>
+
+soal10:
+  /root/break_nat.sh  ->  script/Gendo/soal10/break_nat.sh
+  /root/soal10_fix.sh  ->  script/Gendo/soal10/soal10_fix.sh
+soal2:
+  /root/soal2.sh  ->  script/Gendo/soal2/soal2.sh
+soal3:
+  /root/soal3.sh  ->  script/Gendo/soal3/soal3.sh
+soal4:
+  /root/gendo.sh  ->  script/Gendo/soal4/gendo.sh
+soal5:
+  /root/gendo.sh  ->  script/Gendo/soal5/gendo.sh
+
+Catatan:
+- demo.sh sengaja tidak disalin (sesuai permintaan).
+- Alias /root/soal_3.sh dan /root/soal_3 tidak disalin;
+  keduanya symlink ke /root/soal3.sh.
+- /root/gendo.sh adalah satu file gabungan soal 2+3+4+5;
+  disalin ke folder soal4 dan soal5 dengan isi identik.
+- Variat nat_only.sh / firewall_only.sh tidak ada di /root;
+  arsipnya ada di dokumen/soal4 dan dokumen/soal5.

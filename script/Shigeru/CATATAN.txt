@@ -1,0 +1,16 @@
+Node: Shigeru
+Sumber: file yang sedang ada di /root pada container GNS3.
+Struktur: script/<node>/<soal>/<nama file asli di /root>
+
+soal2:
+  /root/soal2.sh  ->  script/Shigeru/soal2/soal2.sh
+soal3:
+  /root/soal3.sh  ->  script/Shigeru/soal3/soal3.sh
+soal9:
+  /root/break_routing.sh  ->  script/Shigeru/soal9/break_routing.sh
+  /root/soal9_fix.sh  ->  script/Shigeru/soal9/soal9_fix.sh
+
+Catatan:
+- demo.sh sengaja tidak disalin (sesuai permintaan).
+- Alias /root/soal_3.sh dan /root/soal_3 tidak disalin;
+  keduanya symlink ke /root/soal3.sh.

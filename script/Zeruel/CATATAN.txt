@@ -1,0 +1,13 @@
+Node: Zeruel
+Sumber: file yang sedang ada di /root pada container GNS3.
+Struktur: script/<node>/<soal>/<nama file asli di /root>
+
+soal4:
+  /root/soal4_dns.sh  ->  script/Zeruel/soal4/soal4_dns.sh
+soal6:
+  /root/init.sh  ->  script/Zeruel/soal6/init.sh
+
+Catatan:
+- demo.sh sengaja tidak disalin (sesuai permintaan).
+- Alias /root/soal_3.sh dan /root/soal_3 tidak disalin;
+  keduanya symlink ke /root/soal3.sh.

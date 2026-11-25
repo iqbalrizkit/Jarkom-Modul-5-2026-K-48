@@ -1,0 +1,62 @@
+SCRIPT ROOT NODE - JARKOM MODUL 5 2026 K-48
+
+Struktur:
+  script/<nama node>/<soal>/<file>
+
+Isi folder adalah salinan persis dari /root pada container GNS3 saat
+pengerjaan selesai. Bukan arsip dokumen/ dan bukan script demo.
+
+Aturan:
+- demo.sh TIDAK disalin (sesuai permintaan).
+- Symlink /root/soal_3.sh dan /root/soal_3 TIDAK disalin;
+  keduanya menunjuk ke /root/soal3.sh.
+- break_routing.sh / break_nat.sh IKUT disalin karena memang ada di /root;
+  jalankan hanya jika ingin memperagakan kerusakan.
+- gendo.sh disalin ke soal4/ dan soal5/ (isi identik, gabungan soal 2-5).
+
+Node terliput: 42
+File tersalin: 104
+
+Indeks:
+  Adam               soal4(1), soal6(1)
+  Archive-Vault      soal4(1), soal6(1)
+  Armisael           soal3(1), soal4(1), soal6(1)
+  Asuka              soal2(1), soal3(1)
+  Comm-Net           soal3(1), soal4(1), soal6(1)
+  Dock-Crew          soal4(1), soal6(1)
+  Dummy-Plug         soal4(1), soal6(1)
+  Entry-Plug         soal4(1), soal6(1)
+  Fuyutsuki          soal2(1), soal3(1)
+  Garden-Staff       soal4(1), soal6(1)
+  Gendo              soal10(2), soal2(1), soal3(1), soal4(1), soal5(1)
+  Hangar-Crew        soal4(1), soal6(1)
+  Hikari             soal2(1), soal3(1)
+  Kaji               soal2(1), soal3(1)
+  Kaworu             soal2(1), soal3(1)
+  Kensuke            soal2(1), soal3(1)
+  Lilith             soal3(1), soal4(1), soal6(1)
+  Magi-Balthasar     soal4(2), soal6(1), soal7(1)
+  Magi-Casper        soal4(2), soal6(1), soal7(1)
+  Magi-Melchior      soal4(2), soal6(1), soal7(1)
+  Makoto             soal2(1), soal3(1)
+  Mari               soal2(1), soal3(1)
+  Maya               soal2(1), soal3(1)
+  Medic-Bay          soal4(1), soal6(1)
+  Misato             soal10(2), soal2(1), soal3(1)
+  Pen-Pen            soal4(1), soal6(1), soal8(1)
+  Quarters           soal4(1), soal6(1)
+  Radar-Array        soal4(1), soal6(1)
+  Rei                soal2(1), soal3(1)
+  Relay-Node         soal4(1), soal6(1)
+  Ritsuko            soal2(1), soal3(1)
+  Sachiel            soal3(1), soal4(1), soal6(1)
+  Shigeru            soal2(1), soal3(1), soal9(2)
+  Shinji             soal2(1), soal3(1)
+  Spy                soal4(1), soal6(1)
+  Toji               soal2(1), soal3(1)
+  Tokyo3-Core        soal4(1), soal6(1), soal8(1)
+  Unit-00            soal4(1), soal6(1)
+  Unit-01            soal4(1), soal6(1)
+  Unit-02            soal4(1), soal6(1)
+  Yui                soal2(1), soal3(1)
+  Zeruel             soal4(1), soal6(1)
