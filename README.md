@@ -339,7 +339,7 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 #### 1. pratinjau topologi (posisi sama dengan project)
 
-![pratinjau topologi (posisi sama dengan project)](assets/soal2/topologi_gns3.png)
+![pratinjau topologi (posisi sama dengan project)](assets/soal2/topo_gns3.png)
 
 ---
 
