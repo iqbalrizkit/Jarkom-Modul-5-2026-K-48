@@ -1,4 +1,4 @@
-# PRAKTIKUM JARKOM MODUL 4 KELOMPOK 48
+# PRAKTIKUM JARKOM MODUL 5 KELOMPOK 48 - 2026
 
 ## Anggota Kelompok
 
@@ -7,27 +7,42 @@
 | Tafidah Hasna Mumtazah | 5027251025 |
 | Iqbal Rizki Muhammad Fadhli | 5027251027 |
 
-## Daftar isi
+## Operation Geofront
 
-1. [Soal 1 — VLSM Operation Geofront (K-48)](#soal-1)
-2. [Soal 2 — Membangun Geofront di GNS3 (K-48)](#soal-2)
-3. [Soal 3 — Routing Statis Geofront (K-48)](#soal-3)
-4. [Soal 4 — Akses Internet Geofront lewat Gendo (K-48)](#soal-4)
-5. [Soal 5 — Mengunci Pintu NAT1 di Gendo (K-48)](#soal-5)
-6. [Soal 6 — Alamat Permanen Semua Node Non-Router (K-48)](#soal-6)
-7. [Soal 7 — Membangunkan MAGI (K-48)](#soal-7)
-8. [Soal 8 — Kondisi Normal Pen-Pen & Tokyo3-Core (K-48)](#soal-8)
-9. [Soal 9 — Jalur Belakang di Shigeru Disabotase (K-48)](#soal-9)
-10. [Soal 10 — Para Pilot Terkunci di Dalam (K-48)](#soal-10)
+Pada modul ini kami merancang dan mengonfigurasi jaringan "Operation Geofront"
+menggunakan GNS3. Topologi menghubungkan sejumlah client melalui router dan switch
+ke pusat layanan, dengan satu pintu keluar ke internet melalui NAT.
+
+**Prefix IP Kelompok:** `192.235.0.0/16` (link antar-router memakai `/30`)
+
+Bukti pengerjaan berupa tangkapan layar GNS3 dan konsol node disajikan pada galeri
+di bawah masing-masing soal.
+
+## Daftar Isi
+
+1. [Soal 1: Identifikasi Kebutuhan dan Pembagian VLSM](#soal-1)
+2. [Soal 2: Membangun Topologi di GNS3](#soal-2)
+3. [Soal 3: Routing Statis Geofront](#soal-3)
+4. [Soal 4: Akses Internet melalui Gendo](#soal-4)
+5. [Soal 5: Firewall pada Gendo](#soal-5)
+6. [Soal 6: Alamat Permanen Host](#soal-6)
+7. [Soal 7: Mengaktifkan MAGI](#soal-7)
+8. [Soal 8: Kondisi Normal Pen-Pen dan Tokyo3-Core](#soal-8)
+9. [Soal 9: Perbaikan Routing Shigeru](#soal-9)
+10. [Soal 10: Perbaikan NAT Jaringan Cage](#soal-10)
 
 ---
 
 <a id="soal-1"></a>
 
-## Soal 1 — VLSM Operation Geofront (K-48)
+## Soal 1: Identifikasi Kebutuhan dan Pembagian VLSM
 
-### 1. Rekap pembagian
+**Deskripsi Soal:**
+Kami diminta menentukan kebutuhan alamat untuk setiap LAN dan link, lalu membagi prefix `192.235.0.0/16` dengan metode VLSM. Gateway tiap LAN memakai IP usable pertama, sedangkan host berikutnya menerima alamat berurutan.
 
+**Hasil Pengerjaan:**
+**Hasil Pengerjaan:**
+**Rekap pembagian:**
 | Blok | Prefix | Jumlah |
 |---|---|---|
 | LAN Quarters | /23 | 512 |
@@ -45,8 +60,7 @@ Dengan `192.235.0.0/16`, blok terpakai adalah
 `192.235.0.0/21` (192.235.0.0 – 192.235.7.255),
 dan alamat `192.235.4.172` – `192.235.255.255` masih bebas.
 
-### 2. Hitungan satu subnet (Quarters)
-
+**Hitungan satu subnet (Quarters):**
 1. Kebutuhan host: **500** container/host.
 2. Tambah gateway: 500 + 1 = **501 usable**.
 3. Cari prefix terkecil dengan `2^(32-p) - 2 ≥ 501`:
@@ -61,8 +75,7 @@ dan alamat `192.235.4.172` – `192.235.255.255` masih bebas.
 Tabel lengkap: lihat `dokumen/soal1/tabel_vlsm.xlsx` (sheet **Tabel VLSM**, **Alamat Host**, **Alamat Link**)
 atau `dokumen/soal1/tabel_subnet.csv`, `dokumen/soal1/alamat_host.csv`, `dokumen/soal1/alamat_link.csv`.
 
-### 3. Pohon IP dan jalur Dummy-Plug → Armisael
-
+**Pohon IP dan jalur Dummy-Plug → Armisael:**
 Gambar: **`assets/soal1/pohon_ip.png`** (pohon alokasi prefix) dan **`assets/soal1/jalur_dummy_armisael.png`**
 (diagram jalur hop-per-hop).
 
@@ -175,11 +188,14 @@ Total terpakai: **1196 alamat** (`192.235.0.0` – `192.235.4.171`), sisa blok: 
 
 <a id="soal-2"></a>
 
-## Soal 2 — Membangun Geofront di GNS3 (K-48)
+## Soal 2: Membangun Topologi di GNS3
 
+**Deskripsi Soal:**
+Setelah perencanaan alamat selesai, topologi dibangun di GNS3. Jaringan terdiri dari 17 router, 17 switch, 25 container host, dan satu node NAT.
 
-### 1. Ringkasan
+**Hasil Pengerjaan:**
 
+**Ringkasan:**
 | Item | Target | Hasil |
 |---|---|---|
 | Router | 17 | **17** |
@@ -188,14 +204,13 @@ Total terpakai: **1196 alamat** (`192.235.0.0` – `192.235.4.171`), sisa blok: 
 | NAT | 1 (NAT1) | **1** |
 | Total node | 60 | **60** |
 | Total link | 59 | **59** |
-| Router IP terpasang | 17 | **17 OK** |
-| `ip_forward=1` | 17 | **17 OK** |
-| Ping ujung link router–router | 16 | **16 OK, 0% loss** |
+| Router IP terpasang | 17 | **17 terpasang** |
+| `ip_forward=1` | 17 | **17 aktif** |
+| Ping ujung link router–router | 16 | **16 berhasil, 0% loss** |
 | Gendo DHCP dari NAT1 | ya | **ya** (`192.168.122.x`) |
 
 
-### 2. Pembagian interface
-
+**Pembagian interface:**
 | Peran | Interface | Keterangan |
 |---|---|---|
 | LAN router | `eth0` | gateway subnet LAN, IP usable pertama |
@@ -204,8 +219,7 @@ Total terpakai: **1196 alamat** (`192.235.0.0` – `192.235.4.171`), sisa blok: 
 | Gendo → anak | `eth2`–`eth8` | 7 link |
 | Link LAN ke switch | router `eth0` ↔ switch port 0 | host di port 1, 2, 3 |
 
-### 3. Konfigurasi
-
+**Konfigurasi:**
 Script tiap router dikirim ke **`/root/soal2.sh`** di dalam container. Berikut isi script:
 
 ```sh
@@ -218,8 +232,7 @@ ip addr add <ip>/<prefix> dev ethX
 udhcpc -i eth1 -q -n -t 10
 ```
 
-### 4. Bukti ping antar-link
-
+**Bukti ping antar-link:**
 Semua 16 link diuji dari sisi parent ke IP child:
 
 ```
@@ -229,18 +242,18 @@ Hikari→Kaworu, Asuka→Kensuke, Asuka→Ritsuko, Shigeru→Makoto,
 Fuyutsuki→Maya, Fuyutsuki→Toji
 ```
 
-#### 1. pratinjau topologi (posisi sama dengan project)
-
-![pratinjau topologi (posisi sama dengan project)](assets/soal2/topo_gns3.png)
+![Topologi GNS3](assets/soal2/topo_gns3.png)
 
 ---
 
 <a id="soal-3"></a>
 
-## Soal 3 — Routing Statis Geofront (K-48)
+## Soal 3: Routing Statis Geofront
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Setiap router dihubungkan ke cabang di bawahnya melalui rute statis. Router selain Gendo memakai default route ke router induk, sedangkan Gendo tetap memakai default route dari NAT1.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
 | Router dengan routing statis | 17/17 |
@@ -253,8 +266,7 @@ Fuyutsuki→Maya, Fuyutsuki→Toji
 Script: `/root/soal3.sh` di tiap router dan host uji. Salinan lokal:
 `dokumen/soal3/configs/<router>.sh`, `dokumen/soal3/configs/host_<nama>.sh`.
 
-### 2. Prinsip routing
-
+**Prinsip routing:**
 - **Non-Gendo:** satu `default route` ke router induk + rute ke subnet di bawahnya.
 - **Gendo:** rute ke semua cabang; default route tetap memakai DHCP dari NAT1
   (tidak ditulis statis agar tidak perlu diubah saat IP NAT1 berganti — dipakai lagi di soal 4).
@@ -271,8 +283,7 @@ Contoh ringkasan yang benar-benar terjadi:
 | Asuka (link ke Kensuke+Ritsuko) | `192.235.4.152/30` + `192.235.4.156/30` | **`192.235.4.152/29`** |
 | Fuyutsuki (link ke Maya+Toji) | `192.235.4.164/30` + `192.235.4.168/30` | **`192.235.4.164/29`** |
 
-### 3. Jumlah rute per router
-
+**Jumlah rute per router:**
 | Router | Rute bawahan | Router | Rute bawahan |
 |---|---:|---|---:|
 | Gendo | 22 | Yui | 3 |
@@ -294,8 +305,7 @@ default via 192.168.122.1 dev eth1        # DHCP NAT1
 
 Tabel lengkap: **`dokumen/soal3/ip_route_all.txt`**, per-router di `dokumen/soal3/verify/routes_*.txt`.
 
-### 4. IP sementara node uji
-
+**IP sementara node uji:**
 | Node | IP | Gateway | Switch | Router |
 |---|---|---|---|---|
 | Armisael | `192.235.4.83/29` | `192.235.4.81` | Switch-Monolith | Shigeru |
@@ -303,8 +313,7 @@ Tabel lengkap: **`dokumen/soal3/ip_route_all.txt`**, per-router di `dokumen/soal
 | Sachiel | `192.235.3.130/26` | `192.235.3.129` | Switch-Bunker | Kensuke |
 | Comm-Net | `192.235.2.2/24` | `192.235.2.1` | Switch-Comm | Hikari |
 
-### 5. Pembuktian
-
+**Validasi:**
 Dari konsol **Armisael**:
 
 ```
@@ -323,96 +332,29 @@ Armisael → Shigeru → Gendo → Hikari → Comm-Net
            (default)  (rute /24)  (LAN)
 ```
 
-### 6. Bukti screenshot (asli, diambil saat pengerjaan)
-
-Semua file di folder **`bukti/`** adalah hasil tangkap layar langsung
-(konsol GNS3 via Terminal dan Web UI GNS3), bukan gambar yang digambar/generate.
-
-| File | Isi |
-|---|---|
-| `assets/soal3/01-topologi-gns3.png` | Web UI GNS3: 60 node & link, kanvas sudah terlihat |
-| `assets/soal3/02-armisael-ip.png` | konsol Armisael: `ip -br a`, `ip route` |
-| `assets/soal3/03-ping-lilith.png` | konsol Armisael: ping `192.235.4.74` 4/4 |
-| `assets/soal3/04-ping-sachiel.png` | konsol Armisael: ping `192.235.3.130` 4/4 |
-| `assets/soal3/05-ping-commnet.png` | konsol Armisael: ping `192.235.2.2` 4/4 |
-| `assets/soal3/06-gendo-route.png` | `ip route` Gendo: 22 rute + default NAT1 |
-| `assets/soal3/07-yui-route.png` | `ip route` Yui: default + 3 rute |
-| `assets/soal3/08-hikari-route.png` | `ip route` Hikari: default + 1 rute |
-| `assets/soal3/09-asuka-route.png` | `ip route` Asuka: default + 2 rute |
-| `assets/soal3/10-shigeru-route.png` | `ip route` Shigeru: default + `192.235.4.88/29` |
-| `assets/soal3/11-fuyutsuki-route.png` | `ip route` Fuyutsuki: default + 2 rute |
-| `assets/soal3/12-makoto-default.png` | `ip route` Makoto: hanya default ke Shigeru |
-
-Catatan kanvas: koordinat node digeser sebesar `(-1000, -500)` karena Web UI
-GNS3 3.x memusatkan scene di (0,0). Sebelumnya node masih ada di project tetapi
-berada di luar viewport sehingga kanvas terlihat kosong.
-
-### 7. File lain
-
-| File | Isi |
-|---|---|
-| `dokumen/soal3/configs/*.sh` | script tiap router + 4 host uji |
-| `dokumen/soal3/verify/routes_*.txt` | `ip route` per router |
-| `dokumen/soal3/verify/ping_armisael.txt` | bukti ping utama |
-| `dokumen/soal3/verify/ping_balik.txt` | ping balik dari target |
-| `dokumen/soal3/verify/hosts.txt` | IP & default host uji |
-| `dokumen/soal3/summary.json` | ringkasan mesin (31 rute, 0 gagal) |
-
-Regenerasi: `python3 build_soal3.py all` (atau `routes` / `hosts` / `verify`).
-Screenshot: `./capture_bukti.sh <file.png> <nama-node> "<perintah>"`.
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3: 60 node & link, kanvas sudah terlihat
+**Galeri Bukti:**
 
 ![Web UI GNS3: 60 node & link, kanvas sudah terlihat](assets/soal3/01-topologi-gns3.png)
 
-#### 2. konsol Armisael: `ip -br a`, `ip route`
-
 ![konsol Armisael: `ip -br a`, `ip route`](assets/soal3/02-armisael-ip.png)
-
-#### 3. konsol Armisael: ping `192.235.4.74` 4/4
 
 ![konsol Armisael: ping `192.235.4.74` 4/4](assets/soal3/03-ping-lilith.png)
 
-#### 4. konsol Armisael: ping `192.235.3.130` 4/4
-
 ![konsol Armisael: ping `192.235.3.130` 4/4](assets/soal3/04-ping-sachiel.png)
-
-#### 5. konsol Armisael: ping `192.235.2.2` 4/4
 
 ![konsol Armisael: ping `192.235.2.2` 4/4](assets/soal3/05-ping-commnet.png)
 
-#### 6. `ip route` Gendo: 22 rute + default NAT1
-
 ![`ip route` Gendo: 22 rute + default NAT1](assets/soal3/06-gendo-route.png)
-
-#### 7. `ip route` Yui: default + 3 rute
 
 ![`ip route` Yui: default + 3 rute](assets/soal3/07-yui-route.png)
 
-#### 8. `ip route` Hikari: default + 1 rute
-
 ![`ip route` Hikari: default + 1 rute](assets/soal3/08-hikari-route.png)
-
-#### 9. `ip route` Asuka: default + 2 rute
 
 ![`ip route` Asuka: default + 2 rute](assets/soal3/09-asuka-route.png)
 
-#### 10. `ip route` Shigeru: default + `192.235.4.88/29`
-
 ![`ip route` Shigeru: default + `192.235.4.88/29`](assets/soal3/10-shigeru-route.png)
 
-#### 11. `ip route` Fuyutsuki: default + 2 rute
-
 ![`ip route` Fuyutsuki: default + 2 rute](assets/soal3/11-fuyutsuki-route.png)
-
-#### 12. `ip route` Makoto: hanya default ke Shigeru
 
 ![`ip route` Makoto: hanya default ke Shigeru](assets/soal3/12-makoto-default.png)
 
@@ -420,27 +362,28 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 <a id="soal-4"></a>
 
-## Soal 4 — Akses Internet Geofront lewat Gendo (K-48)
+## Soal 4: Akses Internet melalui Gendo
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Seluruh jaringan diberi akses internet melalui satu pintu, yaitu Gendo. Aturan NAT dibatasi hanya untuk paket yang berasal dari prefix internal dan keluar menuju NAT1.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
 | Internet untuk seluruh jaringan | **aktif** lewat satu pintu (Gendo) |
 | Aturan NAT | 1 rule MASQUERADE di Gendo, sumber `192.235.0.0/16`, keluar `eth1` |
 | Ketergantungan pada IP NAT1 | **tidak ada** (interface diambil dari default route) |
-| Traffic antar-LAN | source address asli tetap dipakai (counter NAT tidak naik) |
+| Traffic antar-LAN | alamat sumber awal tetap dipakai (counter NAT tidak naik) |
 | DNS | 25 host non-router memakai resolver `8.8.8.8`, `1.1.1.1` |
 | Node pemasang paket (Magi) | 3/3 bisa resolve `deb.debian.org` |
 | Armisael & Lilith → `8.8.8.8` | **4/4, 0% packet loss** |
 | Armisael & Lilith → `deb.debian.org` | **4/4, 0% packet loss** |
-| Soal 2 + 3 setelah perubahan | tetap OK (16 link, 31 rute, 3 ping uji) |
+| Soal 2 + 3 setelah perubahan | tetap berhasil (16 link, 31 rute, 3 ping uji) |
 
 Semua konfigurasi Gendo (soal 2 + 3 + 4) ada di satu file **`/root/gendo.sh`**;
 salinan lokal: `dokumen/soal4/configs/gendo.sh`.
 
-### 2. Rancangan NAT
-
+**Rancangan NAT:**
 Aturan yang dipasang:
 
 ```
@@ -461,7 +404,7 @@ Konsekuensinya:
 - Hanya paket yang **berasal dari prefix internal** dan **keluar lewat interface
   NAT1** yang diterjemahkan.
 - Paket antar-LAN lewat interface router lain, sehingga tidak masuk rule ini dan
-  alamat sumber aslinya tetap terbawa.
+  alamat sumber awalnya tetap terbawa.
 
 Bukti counter (diambil dari `dokumen/soal4/verify/nat_counter.txt`):
 
@@ -471,8 +414,7 @@ Bukti counter (diambil dari `dokumen/soal4/verify/nat_counter.txt`):
 | Setelah ping antar-LAN Armisael → Lilith | **0** (tidak berubah) |
 | Setelah ping internet dari Armisael + Lilith | **naik** (> 0) |
 
-### 3. DNS
-
+**DNS:**
 `/root/soal4_dns.sh` ditaruh di **25 host non-router** dan menulis:
 
 ```
@@ -493,8 +435,7 @@ getent ahostsv4 deb.debian.org
 → 151.101.2.132 / 151.101.66.132 / 151.101.130.132 / 151.101.194.132
 ```
 
-### 4. Pembuktian
-
+**Validasi:**
 Dari konsol **Armisael** dan **Lilith**, masing-masing:
 
 ```
@@ -505,76 +446,21 @@ ping -c 4 deb.debian.org   → 4/4, 0% packet loss (resolved ke 151.101.x.x)
 Log lengkap: `dokumen/soal4/verify/ping_internet.txt`, `dokumen/soal4/verify/nat_rules.txt`,
 `dokumen/soal4/verify/nat_counter.txt`, `dokumen/soal4/verify/dns_hosts.txt`, `dokumen/soal4/summary.json`.
 
-### 5. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal4/01-topologi-gns3.png` | Web UI GNS3, topologi 60 node |
-| `assets/soal4/02-gendo-nat-rule.png` | `iptables -t nat -S/-L` di Gendo, rule MASQUERADE + default route |
-| `assets/soal4/03-internal-no-nat.png` | counter NAT = 0 setelah ping antar-LAN |
-| `assets/soal4/04-nat-counter.png` | counter NAT naik setelah ping internet |
-| `assets/soal4/05-armisael-internet.png` | resolv.conf + ping `8.8.8.8` + ping `deb.debian.org` dari Armisael |
-| `assets/soal4/06-lilith-internet.png` | resolv.conf + ping `8.8.8.8` + ping `deb.debian.org` dari Lilith |
-| `assets/soal4/07-gendo-script.png` | potongan `/root/gendo.sh` berisi NAT berbasis interface |
-| `assets/soal4/08-magi-dns.png` | IP sementara + `getent ahostsv4 deb.debian.org` di Magi-Casper |
-
-Semua file di `bukti/` adalah tangkapan layar langsung dari Web UI GNS3 dan
-sesi konsol node, bukan gambar yang digambar atau di-generate.
-
-### 6. Reproduksi
-
-```bash
-python3 build_soal4.py all       # nat + dns + verify
-./capture_bukti.sh <file.png> <node> "<perintah>"
-```
-
-File penting:
-
-| File | Isi |
-|---|---|
-| `dokumen/soal4/configs/gendo.sh` | konfigurasi lengkap Gendo (soal 2+3+4) |
-| `dokumen/soal4/configs/nat_only.sh` | bagian NAT saja |
-| `dokumen/soal4/configs/soal4_dns.sh` | script resolver DNS |
-| `dokumen/soal4/configs/host_Magi-*.sh` | IP sementara node pemasang paket |
-| `dokumen/soal4/verify/` | log rule NAT, counter, ping, DNS |
-| `dokumen/soal4/summary.json` | ringkasan mesin, `fail: []` |
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3, topologi 60 node
+**Galeri Bukti:**
 
 ![Web UI GNS3, topologi 60 node](assets/soal4/01-topologi-gns3.png)
 
-#### 2. `iptables -t nat -S/-L` di Gendo, rule MASQUERADE + default route
-
 ![`iptables -t nat -S/-L` di Gendo, rule MASQUERADE + default route](assets/soal4/02-gendo-nat-rule.png)
-
-#### 3. counter NAT = 0 setelah ping antar-LAN
 
 ![counter NAT = 0 setelah ping antar-LAN](assets/soal4/03-internal-no-nat.png)
 
-#### 4. counter NAT naik setelah ping internet
-
 ![counter NAT naik setelah ping internet](assets/soal4/04-nat-counter.png)
-
-#### 5. resolv.conf + ping `8.8.8.8` + ping `deb.debian.org` dari Armisael
 
 ![resolv.conf + ping `8.8.8.8` + ping `deb.debian.org` dari Armisael](assets/soal4/05-armisael-internet.png)
 
-#### 6. resolv.conf + ping `8.8.8.8` + ping `deb.debian.org` dari Lilith
-
 ![resolv.conf + ping `8.8.8.8` + ping `deb.debian.org` dari Lilith](assets/soal4/06-lilith-internet.png)
 
-#### 7. potongan `/root/gendo.sh` berisi NAT berbasis interface
-
 ![potongan `/root/gendo.sh` berisi NAT berbasis interface](assets/soal4/07-gendo-script.png)
-
-#### 8. IP sementara + `getent ahostsv4 deb.debian.org` di Magi-Casper
 
 ![IP sementara + `getent ahostsv4 deb.debian.org` di Magi-Casper](assets/soal4/08-magi-dns.png)
 
@@ -582,10 +468,12 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 <a id="soal-5"></a>
 
-## Soal 5 — Mengunci Pintu NAT1 di Gendo (K-48)
+## Soal 5: Firewall pada Gendo
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Pada Gendo, policy `INPUT` dan `FORWARD` diubah menjadi `DROP`. Beberapa pengecualian tetap diberikan agar DHCP, DNS, internet, dan komunikasi antar-LAN tidak terganggu.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
 | Policy `INPUT` | **DROP** |
@@ -598,8 +486,7 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 | Soal 2 + 3 + 4 | tetap lolos verifikasi |
 | Lokasi konfigurasi | **`/root/gendo.sh`** (salinan: `dokumen/soal5/configs/gendo.sh`) |
 
-### 2. Aturan yang dipasang
-
+**Aturan yang dipasang:**
 Ringkas dari `iptables -S` di Gendo:
 
 ```
@@ -637,10 +524,9 @@ Tabel `nat` tetap berisi rule dari soal 4:
 
 `NAT_IF` tetap berasal dari default route (`eth1`), jadi firewall juga tidak
 terikat pada alamat NAT1 tertentu. Semua blok ini ditulis di bagian akhir
-`/root/gendo.sh` sehingga script bisa dijalankan ulang dengan aman.
+`/root/gendo.sh` sehingga script dapat dijalankan ulang.
 
-### 3. Pembuktian
-
+**Validasi:**
 - `udhcpc -i eth1 -q -n -t 10` dijalankan **setelah** firewall aktif → lease
   `192.168.122.66` dari `192.168.122.1` tetap diperoleh, default route tetap ada.
 - `ping -c 4 8.8.8.8` dari Armisael → 4/4, 0% packet loss.
@@ -653,68 +539,21 @@ terikat pada alamat NAT1 tertentu. Semua blok ini ditulis di bagian akhir
 Log: `dokumen/soal5/verify/iptables_S.txt`, `dokumen/soal5/verify/iptables_L.txt`,
 `dokumen/soal5/verify/dhcp_after_firewall.txt`, `dokumen/soal5/verify/connectivity.txt`, `dokumen/soal5/summary.json`.
 
-### 4. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal5/01-topologi-gns3.png` | Web UI GNS3 |
-| `assets/soal5/02-gendo-iptables-S.png` | `iptables -S` + aturan NAT di Gendo |
-| `assets/soal5/03-gendo-iptables-L.png` | policy DROP pada INPUT/FORWARD + counter |
-| `assets/soal5/04-gendo-script.png` | bagian Soal 5 di `/root/gendo.sh` |
-| `assets/soal5/05-armisael-internet.png` | ping `8.8.8.8` dari Armisael setelah firewall |
-| `assets/soal5/06-armisael-lilith.png` | ping antar-LAN setelah firewall |
-| `assets/soal5/07-magi-dns.png` | resolusi DNS node pemasang paket |
-| `assets/soal5/08-gendo-dhcp.png` | DHCP ulang berhasil setelah firewall aktif |
-
-Seluruh file di `bukti/` adalah tangkapan layar langsung dari Web UI GNS3 dan
-konsol node, bukan gambar yang dibuat/generate.
-
-### 5. Reproduksi
-
-```bash
-python3 build_soal5.py all
-./capture_bukti.sh <file.png> <node> "<perintah>"
-```
-
-File penting: `dokumen/soal5/configs/gendo.sh`, `dokumen/soal5/configs/firewall_only.sh`, `dokumen/soal5/verify/`,
-`dokumen/soal5/summary.json` (`fail: []`).
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3
+**Galeri Bukti:**
 
 ![Web UI GNS3](assets/soal5/01-topologi-gns3.png)
 
-#### 2. `iptables -S` + aturan NAT di Gendo
-
 ![`iptables -S` + aturan NAT di Gendo](assets/soal5/02-gendo-iptables-S.png)
-
-#### 3. policy DROP pada INPUT/FORWARD + counter
 
 ![policy DROP pada INPUT/FORWARD + counter](assets/soal5/03-gendo-iptables-L.png)
 
-#### 4. bagian Soal 5 di `/root/gendo.sh`
-
 ![bagian Soal 5 di `/root/gendo.sh`](assets/soal5/04-gendo-script.png)
-
-#### 5. ping `8.8.8.8` dari Armisael setelah firewall
 
 ![ping `8.8.8.8` dari Armisael setelah firewall](assets/soal5/05-armisael-internet.png)
 
-#### 6. ping antar-LAN setelah firewall
-
 ![ping antar-LAN setelah firewall](assets/soal5/06-armisael-lilith.png)
 
-#### 7. resolusi DNS node pemasang paket
-
 ![resolusi DNS node pemasang paket](assets/soal5/07-magi-dns.png)
-
-#### 8. DHCP ulang berhasil setelah firewall aktif
 
 ![DHCP ulang berhasil setelah firewall aktif](assets/soal5/08-gendo-dhcp.png)
 
@@ -722,10 +561,12 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 <a id="soal-6"></a>
 
-## Soal 6 — Alamat Permanen Semua Node Non-Router (K-48)
+## Soal 6: Alamat Permanen Host
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Alamat host dibuat permanen dengan script `/root/init.sh`. Script tersebut dipanggil otomatis oleh image container saat node dinyalakan atau di-restart.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
 | Node non-router | **25/25** mendapat IP statis + gateway sesuai VLSM |
@@ -737,8 +578,7 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 | DNS & internet | tetap berhasil setelah restart |
 | Soal 3, 4, 5 | diverifikasi ulang, tetap lolos |
 
-### 2. Aturan penomoran
-
+**Aturan penomoran:**
 Sesuai glosarium: gateway adalah IP usable pertama pada subnet, lalu node-node
 di switch menerima IP usable berikutnya berurutan sesuai penulisan nama di
 topologi (kiri → kanan). Ini sudah sesuai `vlsm_plan.json` yang dipakai sejak
@@ -758,8 +598,7 @@ Contoh:
 Tabel lengkap 25 node: `dokumen/soal6/verify/ip_br_all.txt`, salinan script per node:
 `dokumen/soal6/configs/init_<nama>.sh`.
 
-### 3. Cara agar bertahan setelah restart
-
+**Cara agar bertahan setelah restart:**
 Image `alpinet`/`debinet` menjalankan `/etc/alpinet-init.sh` atau
 `/etc/debinet-init.sh`, yang memanggil **`/root/init.sh`** jika ada dan executable.
 Maka pada tiap host dibuat `/root/init.sh` berisi:
@@ -774,8 +613,7 @@ Script ini juga dijalankan sekali saat konfigurasi dipasang. Setelah itu seluruh
 25 host di-**restart** lewat API GNS3 dan langsung diperiksa ulang: 25/25 IP,
 gateway, dan `/root/init.sh` masih benar (`dokumen/soal6/verify/restart_hosts.txt`).
 
-### 4. Pembuktian
-
+**Validasi:**
 Dari konsol **Unit-01**:
 
 ```
@@ -787,66 +625,21 @@ ping -c 4 192.235.4.65    → 4/4, 0% packet loss
 Log lain: `dokumen/soal6/verify/ping_gateway_all.txt` (25 host), `dokumen/soal6/verify/apply_hosts.txt`,
 `dokumen/soal6/verify/restart_hosts.txt`, `dokumen/soal6/summary.json`.
 
-### 5. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal6/01-topologi-gns3.png` | Web UI GNS3 |
-| `assets/soal6/02-unit01-ip-route.png` | `ip -br` + gateway Unit-01 |
-| `assets/soal6/03-unit01-ping-gateway.png` | ping Unit-01 ke gateway `192.235.4.65` |
-| `assets/soal6/04-unit01-init-script.png` | isi `/root/init.sh` Unit-01 |
-| `assets/soal6/05-quarters-ip.png` | IP `/23` Quarters + gateway |
-| `assets/soal6/06-magi-ip-dns.png` | IP Magi-Casper + resolusi DNS |
-| `assets/soal6/07-armisael-after-restart.png` | IP Armisael masih benar setelah restart |
-| `assets/soal6/08-commnet-ip.png` | IP `/24` Comm-Net + gateway |
-
-Semuanya tangkapan layar langsung dari Web UI/konsol GNS3, bukan gambar generate.
-
-### 6. Reproduksi
-
-```bash
-python3 build_soal6.py all       # apply + restart + verify
-./capture_bukti.sh <file.png> <node> "<perintah>"
-```
-
-Ringkasan mesin: `dokumen/soal6/summary.json` (`fail: []`).
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3
+**Galeri Bukti:**
 
 ![Web UI GNS3](assets/soal6/01-topologi-gns3.png)
 
-#### 2. `ip -br` + gateway Unit-01
-
 ![`ip -br` + gateway Unit-01](assets/soal6/02-unit01-ip-route.png)
-
-#### 3. ping Unit-01 ke gateway `192.235.4.65`
 
 ![ping Unit-01 ke gateway `192.235.4.65`](assets/soal6/03-unit01-ping-gateway.png)
 
-#### 4. isi `/root/init.sh` Unit-01
-
 ![isi `/root/init.sh` Unit-01](assets/soal6/04-unit01-init-script.png)
-
-#### 5. IP `/23` Quarters + gateway
 
 ![IP `/23` Quarters + gateway](assets/soal6/05-quarters-ip.png)
 
-#### 6. IP Magi-Casper + resolusi DNS
-
 ![IP Magi-Casper + resolusi DNS](assets/soal6/06-magi-ip-dns.png)
 
-#### 7. IP Armisael masih benar setelah restart
-
 ![IP Armisael masih benar setelah restart](assets/soal6/07-armisael-after-restart.png)
-
-#### 8. IP `/24` Comm-Net + gateway
 
 ![IP `/24` Comm-Net + gateway](assets/soal6/08-commnet-ip.png)
 
@@ -854,24 +647,24 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 <a id="soal-7"></a>
 
-## Soal 7 — Membangunkan MAGI (K-48)
+## Soal 7: Mengaktifkan MAGI
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Ketiga node MAGI diaktifkan dengan memasang `iptables` dan `netcat-traditional`. Listener kemudian disiapkan pada port yang diminta, lalu pesan dari Lilith dikirim ke masing-masing port.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
 | Node MAGI | Casper, Balthasar, Melchior (Switch-Terminal) |
 | Paket dipasang | **`iptables`** + **`netcat-traditional`** di ketiga node |
 | Skrip instalasi | **`/root/<nama>.sh`** (mis. `/root/Magi-Casper.sh`) |
 | Listener | Casper `:5000`; Balthasar `:5000` dan `:5001`; Melchior `:5000` |
-| Pesan dari Lilith | **4/4 terkirim** (RC=0) |
+| Pesan dari Lilith | **4/4 terkirim** |
 | Pesan diterima | **4/4 terbaca di node tujuan** |
-| `fail` | `[]` |
 
 Sesuai glosarium: Casper 5000, Balthasar 5000 + 5001, Melchior 5000.
 
-### 2. Konfigurasi
-
+**Konfigurasi:**
 Tiap node MAGI mendapat `/root/<nama>.sh` yang:
 
 1. `apt-get update` + `apt-get install -y iptables netcat-traditional`
@@ -888,8 +681,7 @@ berikutnya.
 Salinan skrip: `dokumen/soal7/configs/Magi-Casper.sh`, `dokumen/soal7/configs/Magi-Balthasar.sh`,
 `dokumen/soal7/configs/Magi-Melchior.sh`.
 
-### 3. Pengiriman dari Lilith
-
+**Pengiriman dari Lilith:**
 | Tujuan | Port | Pesan | Status |
 |---|---|---|---|
 | Magi-Casper | 5000 | `HALO CASPER DARI LILITH` | diterima |
@@ -900,91 +692,47 @@ Salinan skrip: `dokumen/soal7/configs/Magi-Casper.sh`, `dokumen/soal7/configs/Ma
 Log lengkap: `dokumen/soal7/verify/install.txt`, `dokumen/soal7/verify/listeners.txt`, `dokumen/soal7/verify/send.txt`,
 `dokumen/soal7/verify/received.txt`, ringkasan: `dokumen/soal7/summary.json`.
 
-### 4. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal7/01-topologi-gns3.png` | Web UI GNS3 |
-| `assets/soal7/02-casper-install-listener.png` | paket terpasang + listener `:5000` di Casper |
-| `assets/soal7/03-casper-pesan.png` | pesan diterima di Casper |
-| `assets/soal7/04-balthasar-listener.png` | listener `:5000` dan `:5001` di Balthasar |
-| `assets/soal7/05-balthasar-5000.png` | pesan diterima di Balthasar port 5000 |
-| `assets/soal7/06-balthasar-5001.png` | pesan diterima di Balthasar port 5001 |
-| `assets/soal7/07-melchior-pesan.png` | pesan diterima di Melchior |
-| `assets/soal7/08-lilith-kirim.png` | keempat `nc` dari Lilith, `RC=0` |
-
-Semua file di `bukti/` adalah tangkapan layar langsung dari Web UI GNS3 dan
-konsol node GNS3 yang sedang berjalan, bukan gambar generate.
-
-### 5. Reproduksi
-
-```bash
-python3 build_soal7.py all
-./capture_bukti.sh <file.png> <node> "<perintah>"
-```
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3
+**Galeri Bukti:**
 
 ![Web UI GNS3](assets/soal7/01-topologi-gns3.png)
 
-#### 2. paket terpasang + listener `:5000` di Casper
-
 ![paket terpasang + listener `:5000` di Casper](assets/soal7/02-casper-install-listener.png)
-
-#### 3. pesan diterima di Casper
 
 ![pesan diterima di Casper](assets/soal7/03-casper-pesan.png)
 
-#### 4. listener `:5000` dan `:5001` di Balthasar
-
 ![listener `:5000` dan `:5001` di Balthasar](assets/soal7/04-balthasar-listener.png)
-
-#### 5. pesan diterima di Balthasar port 5000
 
 ![pesan diterima di Balthasar port 5000](assets/soal7/05-balthasar-5000.png)
 
-#### 6. pesan diterima di Balthasar port 5001
-
 ![pesan diterima di Balthasar port 5001](assets/soal7/06-balthasar-5001.png)
-
-#### 7. pesan diterima di Melchior
 
 ![pesan diterima di Melchior](assets/soal7/07-melchior-pesan.png)
 
-#### 8. keempat `nc` dari Lilith, `RC=0`
-
-![keempat `nc` dari Lilith, `RC=0`](assets/soal7/08-lilith-kirim.png)
+![keempat `nc` dari Lilith berhasil](assets/soal7/08-lilith-kirim.png)
 
 ---
 
 <a id="soal-8"></a>
 
-## Soal 8 — Kondisi Normal Pen-Pen & Tokyo3-Core (K-48)
+## Soal 8: Kondisi Normal Pen-Pen dan Tokyo3-Core
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Sebelum adanya perusakan, layanan pada Pen-Pen dan Tokyo3-Core diperiksa dalam kondisi normal. Pengujian dilakukan dari Lilith ke port yang dilayani dan ke port yang tidak dilayani.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
 | Pen-Pen `:80` | `Welcome to Pen-Pen` |
 | Tokyo3-Core `:80` | `Welcome to Tokyo3-Core` |
 | Tokyo3-Core `:8080` | `syifa imutz` |
-| `nc` dari Lilith ke 3 port | **3/3 berhasil, RC=0** |
-| Port `:22` (tidak dilayani) | **Connection refused, RC=1, ±0.006 detik** |
+| `nc` dari Lilith ke 3 port | **3/3 berhasil** |
+| Port `:22` (tidak dilayani) | **Connection refused, ±0.006 detik** |
 | Skrip listener | `/root/Pen-Pen.sh`, `/root/Tokyo3-Core.sh` |
-| `fail` | `[]` |
 
-Ini adalah kondisi **sebelum** sabotase (soal 9/10/12), jadi kedua node sengaja
-dibiarkan melayani tanpa proteksi.
+Kondisi ini diambil sebelum perusakan pada soal 9 dan 10, ketika kedua node masih
+melayani tanpa proteksi.
 
-### 2. Konfigurasi
-
+**Konfigurasi:**
 Tiap node menjalankan `/root/<nama>.sh` yang memasang listener `nc` berulang:
 
 ```sh
@@ -1002,80 +750,35 @@ start_listener 8080 "syifa imutz"
 mendapat satu baris jawaban lalu selesai. Loop `while true` membuat listener
 tetap hidup untuk koneksi berikutnya. Salinan skrip: `dokumen/soal8/configs/`.
 
-### 3. Pembuktian dari Lilith
-
+**Validasi:**
 | Perintah | Jawaban |
 |---|---|
 | `nc -w 3 192.235.3.194 80` | `Welcome to Pen-Pen` |
 | `nc -w 3 192.235.4.106 80` | `Welcome to Tokyo3-Core` |
 | `nc -w 3 192.235.4.106 8080` | `syifa imutz` |
-| `nc -v -w 2 192.235.3.194 22` | `Connection refused`, `0.006 detik`, `RC=1` |
-| `nc -v -w 2 192.235.4.106 22` | `Connection refused`, `0.006 detik`, `RC=1` |
+| `nc -v -w 2 192.235.3.194 22` | `Connection refused`, `0.006 detik` |
+| `nc -v -w 2 192.235.4.106 22` | `Connection refused`, `0.006 detik` |
 
 Durasi ±0.006 detik (jauh di bawah `timeout 5`) membuktikan port tertutup
 **langsung gagal**, bukan menggantung. Log: `dokumen/soal8/verify/nc_served.txt`,
 `dokumen/soal8/verify/nc_closed.txt`, `dokumen/soal8/verify/servers.txt`, `dokumen/soal8/verify/listeners.txt`;
 ringkasan: `dokumen/soal8/summary.json`.
 
-### 4. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal8/01-topologi-gns3.png` | Web UI GNS3 |
-| `assets/soal8/02-penpen-listener.png` | listener `:80` + skrip Pen-Pen |
-| `assets/soal8/03-tokyocore-listener.png` | listener `:80` dan `:8080` Tokyo3-Core |
-| `assets/soal8/04-lilith-penpen80.png` | `Welcome to Pen-Pen` dari Lilith |
-| `assets/soal8/05-lilith-tokyocore80.png` | `Welcome to Tokyo3-Core` dari Lilith |
-| `assets/soal8/06-lilith-tokyocore8080.png` | `syifa imutz` dari Lilith |
-| `assets/soal8/07-lilith-port22.png` | `Connection refused` cepat di kedua node |
-| `assets/soal8/08-tokyocore-script.png` | isi `/root/Tokyo3-Core.sh` |
-
-Semua file di `bukti/` adalah tangkapan layar langsung dari Web UI GNS3 dan
-konsol node yang sedang berjalan, bukan gambar generate.
-
-### 5. Reproduksi
-
-```bash
-python3 build_soal8.py all
-./capture_bukti.sh <file.png> <node> "<perintah>"
-```
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3
+**Galeri Bukti:**
 
 ![Web UI GNS3](assets/soal8/01-topologi-gns3.png)
 
-#### 2. listener `:80` + skrip Pen-Pen
-
 ![listener `:80` + skrip Pen-Pen](assets/soal8/02-penpen-listener.png)
-
-#### 3. listener `:80` dan `:8080` Tokyo3-Core
 
 ![listener `:80` dan `:8080` Tokyo3-Core](assets/soal8/03-tokyocore-listener.png)
 
-#### 4. `Welcome to Pen-Pen` dari Lilith
-
 ![`Welcome to Pen-Pen` dari Lilith](assets/soal8/04-lilith-penpen80.png)
-
-#### 5. `Welcome to Tokyo3-Core` dari Lilith
 
 ![`Welcome to Tokyo3-Core` dari Lilith](assets/soal8/05-lilith-tokyocore80.png)
 
-#### 6. `syifa imutz` dari Lilith
-
 ![`syifa imutz` dari Lilith](assets/soal8/06-lilith-tokyocore8080.png)
 
-#### 7. `Connection refused` cepat di kedua node
-
 ![`Connection refused` cepat di kedua node](assets/soal8/07-lilith-port22.png)
-
-#### 8. isi `/root/Tokyo3-Core.sh`
 
 ![isi `/root/Tokyo3-Core.sh`](assets/soal8/08-tokyocore-script.png)
 
@@ -1083,30 +786,28 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 <a id="soal-9"></a>
 
-## Soal 9 — Jalur Belakang di Shigeru Disabotase (K-48)
+## Soal 9: Perbaikan Routing Shigeru
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Script perusakan dijalankan pada Shigeru. Setelah gejala muncul, kondisi routing diperiksa lalu diperbaiki melalui script perbaikan.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
-| Script sabotase | `break_routing.sh` dari asisten (Drive), SHA-256 `643d8498…5d68`, sama dengan file di `~/Downloads` |
-| Eksekusi | dijalankan di **Shigeru** tanpa dibaca isinya → `Script sudah dirusak` |
+| Eksekusi | dijalankan di **Shigeru**; muncul pesan `Script sudah dirusak` |
 | Gejala | Lilith → Armisael **100% packet loss**; Armisael → gateway tetap **4/4** |
 | Penyebab ditemukan | **4** (lihat tabel di bawah) |
-| Perbaikan | `/root/soal9_fix.sh` (idempoten) |
+| Perbaikan | `/root/soal9_fix.sh` |
 | Setelah perbaikan | Lilith → Armisael **4/4, 0% loss**; Armisael → internet **4/4** |
-| `fail` | `[]` |
 
-### 2. Gejala sebelum perbaikan
-
+**Gejala sebelum perbaikan:**
 - `ping -c 4 192.235.4.83` dari Lilith → 4 terkirim, 0 diterima (100% loss).
 - `ping -c 4 192.235.4.81` dari Armisael → 4/4 diterima (gateway masih hidup).
 - `ping -c 4 8.8.8.8` dari Armisael → `Destination Host Unreachable` dari `192.235.4.81`.
 
 Artinya LAN Switch-Monolith masih sehat, tetapi Shigeru gagal meneruskan/merutekan.
 
-### 3. Semua penyebab
-
+**Semua penyebab:**
 | # | Kondisi yang ditemukan di Shigeru | Efek |
 |---|---|---|
 | 1 | `net.ipv4.ip_forward = 0` | Router tidak meneruskan paket antar interface → balasan Armisael tidak sampai ke Lilith. |
@@ -1116,8 +817,7 @@ Artinya LAN Switch-Monolith masih sehat, tetapi Shigeru gagal meneruskan/merutek
 
 Keempatnya saling memperparah; memperbaiki satu saja tidak cukup.
 
-### 4. Perbaikan
-
+**Perbaikan:**
 `/root/soal9_fix.sh` melakukan:
 
 ```sh
@@ -1132,8 +832,7 @@ ip route replace 192.235.4.88/29 via 192.235.4.162 dev eth2
 Rute Makoto (`192.235.4.88/29 via 192.235.4.162`) dipertahankan karena memang
 rute bawah Shigeru dari soal 3. Salinan: `dokumen/soal9/configs/soal9_fix.sh`.
 
-### 5. Pembuktian akhir
-
+**Validasi:**
 | Uji | Hasil |
 |---|---|
 | Lilith → Armisael `192.235.4.83` | **4/4, 0% packet loss** |
@@ -1145,68 +844,21 @@ rute bawah Shigeru dari soal 3. Salinan: `dokumen/soal9/configs/soal9_fix.sh`.
 Log: `dokumen/soal9/verify/break_run.txt`, `dokumen/soal9/verify/sabotage_state.txt`,
 `dokumen/soal9/verify/repair_run.txt`, `dokumen/soal9/verify/final.txt`; ringkasan: `dokumen/soal9/summary.json`.
 
-### 6. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal9/01-topologi-gns3.png` | Web UI GNS3 |
-| `assets/soal9/02-break-script-run.png` | eksekusi `break_routing.sh` di Shigeru |
-| `assets/soal9/03-sabotage-state.png` | blackhole, `ip_forward=0`, rule 90 + `unreachable default` table 100 |
-| `assets/soal9/04-lilith-gagal.png` | Lilith → Armisael 100% loss saat sabotase |
-| `assets/soal9/05-armisael-gateway-ok.png` | Armisael → gateway tetap 4/4 saat sabotase |
-| `assets/soal9/06-fix-script.png` | isi `/root/soal9_fix.sh` |
-| `assets/soal9/07-after-fix-state.png` | route + rule + `ip_forward` setelah perbaikan |
-| `assets/soal9/08-lilith-pulih.png` | Lilith → Armisael 4/4, 0% loss |
-
-Semuanya tangkapan layar langsung dari Web UI GNS3/konsol node, bukan gambar generate.
-Script asisten tidak pernah dibaca isinya; diagnosis dilakukan murni dari gejala
-dan state router.
-
-### 7. Reproduksi
-
-```bash
-python3 build_soal9.py sabotage   # butuh break_routing.sh di workspace
-python3 build_soal9.py diagnose
-python3 build_soal9.py repair
-python3 build_soal9.py verify
-```
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3
+**Galeri Bukti:**
 
 ![Web UI GNS3](assets/soal9/01-topologi-gns3.png)
 
-#### 2. eksekusi `break_routing.sh` di Shigeru
-
 ![eksekusi `break_routing.sh` di Shigeru](assets/soal9/02-break-script-run.png)
-
-#### 3. blackhole, `ip_forward=0`, rule 90 + `unreachable default` table 100
 
 ![blackhole, `ip_forward=0`, rule 90 + `unreachable default` table 100](assets/soal9/03-sabotage-state.png)
 
-#### 4. Lilith → Armisael 100% loss saat sabotase
-
 ![Lilith → Armisael 100% loss saat sabotase](assets/soal9/04-lilith-gagal.png)
-
-#### 5. Armisael → gateway tetap 4/4 saat sabotase
 
 ![Armisael → gateway tetap 4/4 saat sabotase](assets/soal9/05-armisael-gateway-ok.png)
 
-#### 6. isi `/root/soal9_fix.sh`
-
 ![isi `/root/soal9_fix.sh`](assets/soal9/06-fix-script.png)
 
-#### 7. route + rule + `ip_forward` setelah perbaikan
-
 ![route + rule + `ip_forward` setelah perbaikan](assets/soal9/07-after-fix-state.png)
-
-#### 8. Lilith → Armisael 4/4, 0% loss
 
 ![Lilith → Armisael 4/4, 0% loss](assets/soal9/08-lilith-pulih.png)
 
@@ -1214,23 +866,22 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 <a id="soal-10"></a>
 
-## Soal 10 — Para Pilot Terkunci di Dalam (K-48)
+## Soal 10: Perbaikan NAT Jaringan Cage
 
-### 1. Ringkasan
+**Deskripsi Soal:**
+Script perusakan dijalankan pada Misato dan Gendo. Gangguan ditelusuri dengan membandingkan hasil ping dari jaringan Cage dan dari jaringan Intel.
 
+**Hasil Pengerjaan:**
 | Item | Hasil |
 |---|---|
-| Script sabotase | `break_nat.sh` dari asisten (`~/Downloads`), SHA-256 `cbadcd7e…47e9447e` |
-| Eksekusi | dijalankan di **Misato** dan **Gendo** tanpa membaca isinya |
+| Eksekusi | dijalankan di **Misato** dan **Gendo** |
 | Gejala | Unit-01/02/00 → `8.8.8.8` **100% loss**; Spy → `8.8.8.8` **4/4**; Unit-01 → Lilith dan gateway **normal** |
 | Penyebab | **2** (satu di Misato, satu di Gendo) |
-| Perbaikan | `/root/soal10_fix.sh` dijalankan di kedua router (idempoten) |
+| Perbaikan | `/root/soal10_fix.sh` dijalankan di kedua router |
 | Setelah perbaikan | Unit-01 → `8.8.8.8` **4/4**; counter MASQUERADE Gendo naik |
-| Terjemahan sumber | terjadi di **Gendo** (`POSTROUTING`, `-o eth1`, NAT1) |
-| `fail` | `[]` |
+| NAT | dilakukan di **Gendo** (`POSTROUTING`, `-o eth1`, NAT1) |
 
-### 2. Gejala sebelum perbaikan
-
+**Gejala sebelum perbaikan:**
 | Uji | Hasil |
 |---|---|
 | Unit-01 → `8.8.8.8` | 4 terkirim, 0 diterima (100% loss) |
@@ -1240,8 +891,7 @@ saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
 
 Jadi masalahnya bukan routing internal/fisik, melainkan **translasi alamat sumber**.
 
-### 3. Semua penyebab
-
+**Semua penyebab:**
 | # | Node | Aturan yang ditambahkan script | Efek |
 |---|---|---|---|
 | 1 | **Misato** | `-A POSTROUTING -s 192.235.4.64/29 ! -d 192.235.0.0/16 -o eth1 -j SNAT --to-source 172.31.99.1` | Setiap paket Cage yang keluar ke internet diubah sumbernya menjadi `172.31.99.1` **di router internal**. Gendo hanya mengizinkan dan melakukan NAT untuk sumber `192.235.0.0/16`, sehingga paket dengan sumber `172.31.99.1` ditolak / tidak diterjemahkan. |
@@ -1249,15 +899,13 @@ Jadi masalahnya bukan routing internal/fisik, melainkan **translasi alamat sumbe
 
 Keduanya harus dihapus; menghapus salah satu saja tidak cukup.
 
-### 4. Kenapa Cage terdampak tetapi Intel tidak
-
+**Kenapa Cage terdampak tetapi Intel tidak:**
 - **Cage** (`192.235.4.64/29`) lewat **Misato → Gendo**. Kedua router disabotase: Misato mengganti sumber jadi `172.31.99.1`, Gendo mem-`RETURN`-kan subnet Cage sebelum `MASQUERADE`. Akibatnya tidak ada alamat publik yang sah untuk balasan, sehingga ping gagal.
-- **Intel** (`192.235.4.48/29`) lewat **Kaji → Gendo**. Kaji **tidak** menjalankan script, jadi paket Spy sampai di Gendo dengan sumber asli `192.235.x.x` (masuk `192.235.0.0/16`). Firewall `FORWARD` mengizinkan dan aturan `MASQUERADE` di Gendo berfungsi normal. Itulah sebabnya Spy tetap bisa ping `8.8.8.8`.
+- **Intel** (`192.235.4.48/29`) lewat **Kaji → Gendo**. Kaji **tidak** menjalankan script, jadi paket Spy sampai di Gendo dengan sumber awal `192.235.x.x` (masuk `192.235.0.0/16`). Firewall `FORWARD` mengizinkan dan aturan `MASQUERADE` di Gendo berfungsi normal. Itulah sebabnya Spy tetap bisa ping `8.8.8.8`.
 
 Ping Cage → Lilith tetap normal karena tujuannya masih dalam `192.235.0.0/16`: aturan SNAT Misato memakai `! -d 192.235.0.0/16`, jadi tidak pernah kena untuk traffic internal.
 
-### 5. Perbaikan
-
+**Perbaikan:**
 `/root/soal10_fix.sh` (sama di kedua router, memilih tindakan lewat `hostname`):
 
 ```sh
@@ -1271,8 +919,7 @@ iptables -t nat -D POSTROUTING -s 192.235.4.64/29 -o eth1 -j RETURN
 
 Aturan `MASQUERADE` Gendo untuk `192.235.0.0/16` sengaja **dipertahankan**. Salinan skrip: `dokumen/soal10/configs/soal10_fix.sh`.
 
-### 6. Pembuktian akhir & lokasi NAT
-
+**Validasi:**
 | Uji | Hasil |
 |---|---|
 | Unit-01 → `8.8.8.8` | **4/4, 0% packet loss** |
@@ -1287,88 +934,29 @@ Aturan `MASQUERADE` Gendo untuk `192.235.0.0/16` sengaja **dipertahankan**. Sali
 Log: `dokumen/soal10/verify/baseline.txt`, `dokumen/soal10/verify/break_run.txt`, `dokumen/soal10/verify/sabotage_state.txt`,
 `dokumen/soal10/verify/repair_run.txt`, `dokumen/soal10/verify/final.txt`; ringkasan: `dokumen/soal10/summary.json`.
 
-### 7. Bukti screenshot (asli, diambil saat pengerjaan)
-
-| File | Isi |
-|---|---|
-| `assets/soal10/01-topologi-gns3.png` | Web UI GNS3 |
-| `assets/soal10/02-break-misato.png` | eksekusi `break_nat.sh` di Misato |
-| `assets/soal10/03-break-gendo.png` | eksekusi `break_nat.sh` di Gendo |
-| `assets/soal10/04-state-misato.png` | SNAT `172.31.99.1` di Misato |
-| `assets/soal10/05-state-gendo.png` | `RETURN` + `MASQUERADE` di Gendo |
-| `assets/soal10/06-unit01-gagal.png` | Unit-01 → `8.8.8.8` 100% loss saat sabotase |
-| `assets/soal10/07-spy-ok.png` | Spy → `8.8.8.8` tetap 4/4 saat sabotase |
-| `assets/soal10/08-fix-script.png` | isi `/root/soal10_fix.sh` |
-| `assets/soal10/09-after-fix-state.png` | Misato bersih setelah perbaikan |
-| `assets/soal10/10-gendo-masquerade.png` | MASQUERADE Gendo tersisa |
-| `assets/soal10/11-unit01-pulih.png` | Unit-01 → `8.8.8.8` 4/4 |
-| `assets/soal10/12-nat-counter.png` | counter MASQUERADE naik sebelum/sesudah ping |
-
-Semuanya tangkapan layar langsung dari Web UI GNS3/konsol node, bukan gambar generate.
-Script asisten tidak dibaca isinya; diagnosis dilakukan dari gejala dan aturan yang
-terlihat di router.
-
-### 8. Reproduksi
-
-```bash
-python3 build_soal10.py sabotage   # butuh break_nat.sh di workspace
-python3 build_soal10.py diagnose
-python3 build_soal10.py repair
-python3 build_soal10.py verify
-```
-
----
-
-### Galeri bukti screenshot
-
-Semua gambar di bawah adalah **tangkapan layar asli** yang diambil
-saat pengerjaan (Web UI GNS3 dan konsol node), bukan gambar generate.
-
-#### 1. Web UI GNS3
+**Galeri Bukti:**
 
 ![Web UI GNS3](assets/soal10/01-topologi-gns3.png)
 
-#### 2. eksekusi `break_nat.sh` di Misato
-
 ![eksekusi `break_nat.sh` di Misato](assets/soal10/02-break-misato.png)
-
-#### 3. eksekusi `break_nat.sh` di Gendo
 
 ![eksekusi `break_nat.sh` di Gendo](assets/soal10/03-break-gendo.png)
 
-#### 4. SNAT `172.31.99.1` di Misato
-
 ![SNAT `172.31.99.1` di Misato](assets/soal10/04-state-misato.png)
-
-#### 5. `RETURN` + `MASQUERADE` di Gendo
 
 ![`RETURN` + `MASQUERADE` di Gendo](assets/soal10/05-state-gendo.png)
 
-#### 6. Unit-01 → `8.8.8.8` 100% loss saat sabotase
-
 ![Unit-01 → `8.8.8.8` 100% loss saat sabotase](assets/soal10/06-unit01-gagal.png)
-
-#### 7. Spy → `8.8.8.8` tetap 4/4 saat sabotase
 
 ![Spy → `8.8.8.8` tetap 4/4 saat sabotase](assets/soal10/07-spy-ok.png)
 
-#### 8. isi `/root/soal10_fix.sh`
-
 ![isi `/root/soal10_fix.sh`](assets/soal10/08-fix-script.png)
-
-#### 9. Misato bersih setelah perbaikan
 
 ![Misato bersih setelah perbaikan](assets/soal10/09-after-fix-state.png)
 
-#### 10. MASQUERADE Gendo tersisa
-
 ![MASQUERADE Gendo tersisa](assets/soal10/10-gendo-masquerade.png)
 
-#### 11. Unit-01 → `8.8.8.8` 4/4
-
 ![Unit-01 → `8.8.8.8` 4/4](assets/soal10/11-unit01-pulih.png)
-
-#### 12. counter MASQUERADE naik sebelum/sesudah ping
 
 ![counter MASQUERADE naik sebelum/sesudah ping](assets/soal10/12-nat-counter.png)
 
