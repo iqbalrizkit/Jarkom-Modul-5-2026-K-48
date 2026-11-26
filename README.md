@@ -334,8 +334,6 @@ Armisael → Shigeru → Gendo → Hikari → Comm-Net
 
 **Galeri Bukti:**
 
-![Web UI GNS3: 60 node & link, kanvas sudah terlihat](assets/soal3/01-topologi-gns3.png)
-
 ![konsol Armisael: `ip -br a`, `ip route`](assets/soal3/02-armisael-ip.png)
 
 ![konsol Armisael: ping `192.235.4.74` 4/4](assets/soal3/03-ping-lilith.png)
@@ -448,8 +446,6 @@ Log lengkap: `dokumen/soal4/verify/ping_internet.txt`, `dokumen/soal4/verify/nat
 
 **Galeri Bukti:**
 
-![Web UI GNS3, topologi 60 node](assets/soal4/01-topologi-gns3.png)
-
 ![`iptables -t nat -S/-L` di Gendo, rule MASQUERADE + default route](assets/soal4/02-gendo-nat-rule.png)
 
 ![counter NAT = 0 setelah ping antar-LAN](assets/soal4/03-internal-no-nat.png)
@@ -541,8 +537,6 @@ Log: `dokumen/soal5/verify/iptables_S.txt`, `dokumen/soal5/verify/iptables_L.txt
 
 **Galeri Bukti:**
 
-![Web UI GNS3](assets/soal5/01-topologi-gns3.png)
-
 ![`iptables -S` + aturan NAT di Gendo](assets/soal5/02-gendo-iptables-S.png)
 
 ![policy DROP pada INPUT/FORWARD + counter](assets/soal5/03-gendo-iptables-L.png)
@@ -627,8 +621,6 @@ Log lain: `dokumen/soal6/verify/ping_gateway_all.txt` (25 host), `dokumen/soal6/
 
 **Galeri Bukti:**
 
-![Web UI GNS3](assets/soal6/01-topologi-gns3.png)
-
 ![`ip -br` + gateway Unit-01](assets/soal6/02-unit01-ip-route.png)
 
 ![ping Unit-01 ke gateway `192.235.4.65`](assets/soal6/03-unit01-ping-gateway.png)
@@ -693,8 +685,6 @@ Log lengkap: `dokumen/soal7/verify/install.txt`, `dokumen/soal7/verify/listeners
 `dokumen/soal7/verify/received.txt`, ringkasan: `dokumen/soal7/summary.json`.
 
 **Galeri Bukti:**
-
-![Web UI GNS3](assets/soal7/01-topologi-gns3.png)
 
 ![paket terpasang + listener `:5000` di Casper](assets/soal7/02-casper-install-listener.png)
 
@@ -765,8 +755,6 @@ Durasi ±0.006 detik (jauh di bawah `timeout 5`) membuktikan port tertutup
 ringkasan: `dokumen/soal8/summary.json`.
 
 **Galeri Bukti:**
-
-![Web UI GNS3](assets/soal8/01-topologi-gns3.png)
 
 ![listener `:80` + skrip Pen-Pen](assets/soal8/02-penpen-listener.png)
 
@@ -845,8 +833,6 @@ Log: `dokumen/soal9/verify/break_run.txt`, `dokumen/soal9/verify/sabotage_state.
 `dokumen/soal9/verify/repair_run.txt`, `dokumen/soal9/verify/final.txt`; ringkasan: `dokumen/soal9/summary.json`.
 
 **Galeri Bukti:**
-
-![Web UI GNS3](assets/soal9/01-topologi-gns3.png)
 
 ![eksekusi `break_routing.sh` di Shigeru](assets/soal9/02-break-script-run.png)
 
@@ -935,8 +921,6 @@ Log: `dokumen/soal10/verify/baseline.txt`, `dokumen/soal10/verify/break_run.txt`
 `dokumen/soal10/verify/repair_run.txt`, `dokumen/soal10/verify/final.txt`; ringkasan: `dokumen/soal10/summary.json`.
 
 **Galeri Bukti:**
-
-![Web UI GNS3](assets/soal10/01-topologi-gns3.png)
 
 ![eksekusi `break_nat.sh` di Misato](assets/soal10/02-break-misato.png)
 
