@@ -1513,10 +1513,9 @@ Setelah pengujian, variabel dikembalikan ke jadwal sebenarnya (`01:00`–`09:00`
 | `assets/soal14/03-kondisiA-unit01-ok.png` | Unit-01 → Pen-Pen berhasil (kondisi A) |
 | `assets/soal14/04-kondisiA-lilith-gagal.png` | Lilith → Pen-Pen gagal (kondisi A) |
 | `assets/soal14/05-kondisiA-spy-gagal.png` | Spy → Pen-Pen gagal (kondisi A) |
-| `assets/soal14/06-kondisiB-variabel.png` | perubahan variabel kondisi B dan `sh /root/Pen-Pen.sh` |
-| `assets/soal14/07-kondisiB-unit01-gagal.png` | Unit-01 → Pen-Pen gagal (kondisi B) |
-| `assets/soal14/08-kondisiB-lilith-ok.png` | Lilith → Pen-Pen berhasil (kondisi B) |
-| `assets/soal14/09-kondisiB-spy-gagal.png` | Spy → Pen-Pen gagal (kondisi B) |
+| `assets/soal14/06-kondisiB-unit01-gagal.png` | Unit-01 → Pen-Pen gagal (kondisi B) |
+| `assets/soal14/07-kondisiB-lilith-ok.png` | Lilith → Pen-Pen berhasil (kondisi B) |
+| `assets/soal14/08-kondisiB-spy-gagal.png` | Spy → Pen-Pen gagal (kondisi B) |
 
 ### 6. Langkah pengerjaan
 
